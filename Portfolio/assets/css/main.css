@@ -8718,7 +8718,7 @@ body.tw-magic-cursor #magic-cursor {
 }
 
 .marquee-two-title {
-  font-size: 165px;
+  font-size: 110px;
   line-height: 95%;
 }
 
@@ -9585,21 +9585,21 @@ body.tw-magic-cursor #magic-cursor {
   background: #010406;
 }
 .feature-three-left {
-  gap: 227px;
+  gap: 60px;
 }
 @media screen and (max-width: 1199px) {
   .feature-three-left {
-    gap: 140px;
+    gap: 40px;
   }
 }
 @media screen and (max-width: 991px) {
   .feature-three-left {
-    gap: 30px;
+    gap: 20px;
   }
 }
 @media screen and (max-width: 767px) {
   .feature-three-left {
-    gap: 0px;
+    gap: 15px;
   }
 }
 @media screen and (max-width: 575px) {
@@ -9614,7 +9614,7 @@ body.tw-magic-cursor #magic-cursor {
 }
 .feature-three-single {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-block: 36px;
+  padding-block: 22px;
 }
 .feature-three-single:last-child {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
