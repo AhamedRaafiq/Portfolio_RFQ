@@ -4800,8 +4800,8 @@ input:focus-visible {
 }
 @media (min-width: 992px) {
   .py-120 {
-    padding-block-start: 120px;
-    padding-block-end: 120px;
+    padding-block-start: 75px;
+    padding-block-end: 75px;
   }
 }
 
@@ -4815,7 +4815,7 @@ input:focus-visible {
 }
 @media (min-width: 992px) {
   .pt-120 {
-    padding-block-start: 120px;
+    padding-block-start: 75px;
   }
 }
 
@@ -4829,7 +4829,7 @@ input:focus-visible {
 }
 @media (min-width: 992px) {
   .pb-120 {
-    padding-block-end: 120px;
+    padding-block-end: 75px;
   }
 }
 
@@ -6249,52 +6249,52 @@ input:focus-visible {
   }
 }
 .footer-three-bottom-title {
-  font-size: 395px;
+  font-size: 210px;
   line-height: 83%;
 }
 @media screen and (max-width: 1799px) {
   .footer-three-bottom-title {
-    font-size: 372px;
+    font-size: 190px;
   }
 }
 @media screen and (max-width: 1699px) {
   .footer-three-bottom-title {
-    font-size: 345px;
+    font-size: 175px;
   }
 }
 @media screen and (max-width: 1499px) {
   .footer-three-bottom-title {
-    font-size: 306px;
+    font-size: 150px;
   }
 }
 @media screen and (max-width: 1399px) {
   .footer-three-bottom-title {
-    font-size: 260px;
+    font-size: 130px;
   }
 }
 @media screen and (max-width: 1199px) {
   .footer-three-bottom-title {
-    font-size: 215px;
+    font-size: 110px;
   }
 }
 @media screen and (max-width: 991px) {
   .footer-three-bottom-title {
-    font-size: 164px;
+    font-size: 90px;
   }
 }
 @media screen and (max-width: 767px) {
   .footer-three-bottom-title {
-    font-size: 120px;
+    font-size: 70px;
   }
 }
 @media screen and (max-width: 575px) {
   .footer-three-bottom-title {
-    font-size: 89px;
+    font-size: 50px;
   }
 }
 @media screen and (max-width: 424px) {
   .footer-three-bottom-title {
-    font-size: 78px;
+    font-size: 40px;
   }
 }
 
@@ -8532,8 +8532,8 @@ body.tw-magic-cursor #magic-cursor {
   }
 }
 .about-three-counter .tw-btn-circle {
-  width: 412px;
-  height: 412px;
+  width: 240px;
+  height: 240px;
   fill: #f5f5f5;
   box-shadow:
     0 4px 4px 0 rgba(0, 0, 0, 0.25),
@@ -8541,20 +8541,20 @@ body.tw-magic-cursor #magic-cursor {
 }
 @media screen and (max-width: 1199px) {
   .about-three-counter .tw-btn-circle {
-    width: 350px;
-    height: 350px;
+    width: 200px;
+    height: 200px;
   }
 }
 .about-three-counter .tw-btn-circle-icon {
-  font-size: 200px;
+  font-size: 80px;
 }
 .about-three-counter .tw-btn-circle-dot {
-  width: 63px;
-  height: 63px;
+  width: 40px;
+  height: 40px;
 }
 .about-three-counter:hover .tw-btn-circle-dot {
-  width: 820px;
-  height: 820px;
+  width: 500px;
+  height: 500px;
 }
 .about-three-wrap-shape {
   position: absolute;
@@ -8857,12 +8857,12 @@ body.tw-magic-cursor #magic-cursor {
   }
 }
 .portfolio-three-item:nth-child(even) {
-  margin-top: 617px;
+  margin-top: 260px;
   margin-bottom: 0;
 }
 @media screen and (max-width: 1399px) {
   .portfolio-three-item:nth-child(even) {
-    margin-top: 480px;
+    margin-top: 180px;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -8880,59 +8880,59 @@ body.tw-magic-cursor #magic-cursor {
   background: #e4e4e4;
 }
 .portfolio-three-counter .tw-btn-circle {
-  width: 282px;
-  height: 282px;
+  width: 200px;
+  height: 200px;
   background: #f5f5f5;
   box-shadow:
     0 4px 4px 0 rgba(0, 0, 0, 0.25),
     -4px -4px 0 0 rgba(255, 255, 255, 0.25);
 }
 .portfolio-three-shape-title {
-  font-size: 642px;
+  font-size: 360px;
 }
 @media screen and (max-width: 1799px) {
   .portfolio-three-shape-title {
-    font-size: 580px;
+    font-size: 330px;
   }
 }
 @media screen and (max-width: 1699px) {
   .portfolio-three-shape-title {
-    font-size: 555px;
+    font-size: 300px;
   }
 }
 @media screen and (max-width: 1499px) {
   .portfolio-three-shape-title {
-    font-size: 480px;
+    font-size: 260px;
   }
 }
 @media screen and (max-width: 1399px) {
   .portfolio-three-shape-title {
-    font-size: 415px;
+    font-size: 220px;
   }
 }
 @media screen and (max-width: 1199px) {
   .portfolio-three-shape-title {
-    font-size: 340px;
+    font-size: 180px;
   }
 }
 @media screen and (max-width: 991px) {
   .portfolio-three-shape-title {
-    font-size: 265px;
+    font-size: 150px;
   }
 }
 @media screen and (max-width: 767px) {
   .portfolio-three-shape-title {
-    font-size: 200px;
+    font-size: 120px;
   }
 }
 @media screen and (max-width: 575px) {
   .portfolio-three-shape-title {
-    font-size: 146px;
+    font-size: 100px;
   }
 }
 @media screen and (max-width: 424px) {
   .portfolio-three-shape-title {
-    font-size: 130px;
+    font-size: 85px;
   }
 }
 
@@ -9206,9 +9206,9 @@ body.tw-magic-cursor #magic-cursor {
 
 .service-three-single {
   border: 2px solid rgba(255, 255, 255, 0.1);
-  padding: 30px 30px 30px 60px;
+  padding: 20px 25px 20px 45px;
   border-radius: 200px;
-  margin-block-end: 60px;
+  margin-block-end: 35px;
   max-width: 1500px;
   width: 100%;
   transition: 0.5s;
