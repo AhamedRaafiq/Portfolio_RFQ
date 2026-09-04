@@ -814,9 +814,14 @@ input[type="number"] {
 html {
   scroll-behavior: smooth;
 }
+@media (min-width: 992px) {
+  html {
+    font-size: 13px;
+  }
+}
 @media (min-width: 1200px) {
   html {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
@@ -5728,7 +5733,7 @@ input:focus-visible {
   max-width: 1680px;
 }
 .tw-container-1800-px {
-  max-width: 1400px;
+  max-width: 1190px;
 }
 
 /* ================================= preload Css Start =========================== */
@@ -8178,25 +8183,25 @@ body.tw-magic-cursor #magic-cursor {
 
 .banner-three-area {
   background: #f5f5f5;
-  padding-block: 130px 60px;
+  padding-block: 110px 50px;
 }
 @media screen and (max-width: 1199px) {
   .banner-three-area {
-    padding-block: 200px 60px;
+    padding-block: 170px 50px;
   }
 }
 @media screen and (max-width: 991px) {
   .banner-three-area {
-    padding-block: 150px 60px;
+    padding-block: 130px 50px;
   }
 }
 @media screen and (max-width: 767px) {
   .banner-three-area {
-    padding-block: 100px 50px;
+    padding-block: 90px 45px;
   }
 }
 .banner-three-title {
-  font-size: 160px;
+  font-size: 136px;
   line-height: 90%;
   text-align: center;
   text-transform: uppercase;
@@ -8205,47 +8210,47 @@ body.tw-magic-cursor #magic-cursor {
 }
 @media screen and (max-width: 1799px) {
   .banner-three-title {
-    font-size: 150px;
+    font-size: 128px;
   }
 }
 @media screen and (max-width: 1699px) {
   .banner-three-title {
-    font-size: 140px;
+    font-size: 120px;
   }
 }
 @media screen and (max-width: 1499px) {
   .banner-three-title {
-    font-size: 125px;
+    font-size: 106px;
   }
 }
 @media screen and (max-width: 1399px) {
   .banner-three-title {
-    font-size: 110px;
+    font-size: 94px;
   }
 }
 @media screen and (max-width: 1199px) {
   .banner-three-title {
-    font-size: 95px;
+    font-size: 80px;
   }
 }
 @media screen and (max-width: 991px) {
   .banner-three-title {
-    font-size: 80px;
+    font-size: 68px;
   }
 }
 @media screen and (max-width: 767px) {
   .banner-three-title {
-    font-size: 65px;
+    font-size: 55px;
   }
 }
 @media screen and (max-width: 575px) {
   .banner-three-title {
-    font-size: 50px;
+    font-size: 42px;
   }
 }
 @media screen and (max-width: 424px) {
   .banner-three-title {
-    font-size: 40px;
+    font-size: 34px;
   }
 }
 .banner-three-left {
@@ -8256,7 +8261,7 @@ body.tw-magic-cursor #magic-cursor {
     -4px -4px 0 0 rgba(255, 255, 255, 0.25);
   background: #f5f5f5;
   padding: 35px 38px 35px 35px;
-  margin-block-end: 70px;
+  margin-block-end: 55px;
 }
 @media screen and (max-width: 1699px) {
   .banner-three-left {
@@ -8291,7 +8296,7 @@ body.tw-magic-cursor #magic-cursor {
     -4px -4px 0 0 rgba(255, 255, 255, 0.25);
   background: #f5f5f5;
   padding: 35px;
-  margin-block-end: 70px;
+  margin-block-end: 55px;
 }
 @media screen and (max-width: 1699px) {
   .banner-three-right {
