@@ -8436,8 +8436,6 @@ body.tw-magic-cursor #magic-cursor {
 .banner-three-man {
   inset-block-end: 27%;
 }
-  }
-}
 
 /* ==================== New Hero Section ==================== */
 .hero-new {
@@ -8449,12 +8447,13 @@ body.tw-magic-cursor #magic-cursor {
   overflow: hidden;
   background:
     linear-gradient(
-      135deg,
-      rgba(1, 4, 6, 0.85) 0%,
-      rgba(1, 4, 6, 0.6) 50%,
-      rgba(1, 4, 6, 0.4) 100%
+      90deg,
+      rgba(1, 4, 6, 0.82) 0%,
+      rgba(1, 4, 6, 0.5) 45%,
+      rgba(1, 4, 6, 0.15) 65%,
+      rgba(1, 4, 6, 0.55) 100%
     ),
-    url('../images/shapes/banner-three-man.png') center / cover no-repeat;
+    url('../images/shapes/banner-three-man.png') center center / cover no-repeat;
   background-color: #010406;
 }
 
@@ -8998,8 +8997,8 @@ body.tw-magic-cursor #magic-cursor {
   height: 500px;
 }
 .about-three-wrap-shape {
-  position: absolute;
-  inset-block-start: -172px;
+  position: relative;
+  margin-block-start: 40px;
   width: 100%;
   inset-inline-start: 0;
 }
