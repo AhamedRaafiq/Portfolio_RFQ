@@ -272,12 +272,11 @@
           class="d-flex align-items-center justify-content-between position-relative"
         >
           <!-- Logo Start -->
-          <div class="header-three-logo tw-rounded-md">
+          <div class="header-three-logo">
             <a href="index.html" class="link">
               <img
                 src="assets/images/logo/logo-secendary.png"
                 alt="Logo"
-                class="max-w-200-px"
               />
             </a>
           </div>
@@ -373,82 +372,88 @@
       <div id="smooth-content">
         <!-- ==================== Hero Section Start ==================== -->
         <section id="home" class="hero-new">
-          <!-- Particle Animation Layer -->
-          <div class="hero-new__particles" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
           <!-- Hero Content -->
           <div class="container tw-container-1800-px hero-new__container">
             <div class="hero-new__content">
-              <!-- Left: Text Content -->
+              <!-- Left: Text Content & Stats -->
               <div
-                class="hero-new__text"
+                class="hero-new__left"
                 data-aos="fade-right"
                 data-aos-duration="1000"
               >
-                <h1 class="hero-new__name">AHAMED RAAFIQ</h1>
-                <h2 class="hero-new__subtitle">
-                  Electronics Engineer | Robotics &amp; Autonomous Systems
-                </h2>
-                <p class="hero-new__tagline">
-                  Designing, building, and optimizing innovative electronic
-                  systems and autonomous solutions for complex real-world
-                  challenges.
-                </p>
-                <div class="hero-new__cta">
-                  <a
-                    class="hero-new__btn hero-new__btn--primary"
-                    href="#portfolio"
-                  >
-                    VIEW PROJECTS
-                  </a>
-                  <a
-                    class="hero-new__btn hero-new__btn--outline"
-                    href="../CV/Raafiq_Resume_(R1).pdf"
-                    download="Ahamed_Raafiq_Resume.pdf"
-                  >
-                    DOWNLOAD CV
-                  </a>
+                <div class="hero-new__text">
+                  <h1 class="hero-new__name">AHAMED RAAFIQ</h1>
+                  <h2 class="hero-new__subtitle">
+                    Electronics Engineer | Robotics &amp; Autonomous Systems
+                  </h2>
+                  <p class="hero-new__tagline">
+                    Designing, building, and optimizing innovative electronic
+                    systems and autonomous solutions for complex real-world
+                    challenges.
+                  </p>
+                  <div class="hero-new__cta">
+                    <a
+                      class="hero-new__btn hero-new__btn--primary"
+                      href="#portfolio"
+                    >
+                      VIEW PROJECTS
+                    </a>
+                    <a
+                      class="hero-new__btn hero-new__btn--outline"
+                      href="../CV/Raafiq_Resume_(R1).pdf"
+                      download="Ahamed_Raafiq_Resume.pdf"
+                    >
+                      DOWNLOAD CV
+                    </a>
+                  </div>
+                </div>
+                <!-- Stats Cards (below CTA buttons) -->
+                <div class="hero-new__stats">
+                  <div class="hero-new__stat-card">
+                    <h3 class="hero-new__stat-number">
+                      <span
+                        class="purecounter"
+                        data-purecounter-duration="2"
+                        data-purecounter-end="6"
+                      ></span><span class="hero-new__stat-suffix">+</span>
+                    </h3>
+                    <p class="hero-new__stat-label">Projects Built</p>
+                  </div>
+                  <div class="hero-new__stat-card">
+                    <h3 class="hero-new__stat-number">
+                      <span
+                        class="purecounter"
+                        data-purecounter-duration="3"
+                        data-purecounter-end="2"
+                      ></span>
+                    </h3>
+                    <p class="hero-new__stat-label">Industry Internships</p>
+                  </div>
+                  <div class="hero-new__stat-card">
+                    <h3 class="hero-new__stat-number">
+                      <span
+                        class="purecounter"
+                        data-purecounter-duration="3"
+                        data-purecounter-end="5"
+                      ></span>
+                    </h3>
+                    <p class="hero-new__stat-label">Certifications Earned</p>
+                  </div>
                 </div>
               </div>
-              <!-- Right: Stats Cards -->
+              <!-- Right: Profile Image -->
               <div
-                class="hero-new__stats"
+                class="hero-new__right"
                 data-aos="fade-left"
                 data-aos-duration="1000"
-                data-aos-delay="300"
+                data-aos-delay="200"
               >
-                <div class="hero-new__stat-card">
-                  <h3 class="hero-new__stat-number">
-                    <span
-                      class="purecounter"
-                      data-purecounter-duration="2"
-                      data-purecounter-end="6"
-                    ></span><span class="hero-new__stat-suffix">+</span>
-                  </h3>
-                  <p class="hero-new__stat-label">Projects Built</p>
-                </div>
-                <div class="hero-new__stat-card">
-                  <h3 class="hero-new__stat-number">
-                    <span
-                      class="purecounter"
-                      data-purecounter-duration="3"
-                      data-purecounter-end="2"
-                    ></span>
-                  </h3>
-                  <p class="hero-new__stat-label">Industry Internships</p>
-                </div>
-                <div class="hero-new__stat-card">
-                  <h3 class="hero-new__stat-number">
-                    <span
-                      class="purecounter"
-                      data-purecounter-duration="3"
-                      data-purecounter-end="5"
-                    ></span>
-                  </h3>
-                  <p class="hero-new__stat-label">Certifications Earned</p>
+                <div class="hero-new__profile-wrap">
+                  <img
+                    src="assets/images/thumbs/about-three-thumb.jpg"
+                    alt="Ahamed Raafiq - Electronics Engineer"
+                    class="hero-new__profile-img"
+                  />
                 </div>
               </div>
             </div>
@@ -466,11 +471,35 @@
         <section id="about" class="about-three-area py-120 position-relative z-1">
           <div class="container tw-container-1800-px">
             <div class="about-three-top position-relative z-1">
-              <div class="row justify-content-center tw-mb-21">
-                <div class="col-xl-9">
+              <div class="row align-items-center justify-content-center tw-mb-21 gy-4">
+                <div class="col-lg-auto text-center">
+                  <div class="about-three-counter d-inline-block">
+                    <div class="tw-hover-btn-wrapper d-inline-block">
+                      <a
+                        class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden border border-1 border-neutral-200"
+                        href="#about"
+                      >
+                        <span
+                          class="d-flex flex-column justify-content-center"
+                        >
+                          <span
+                            class="tw-btn-circle-icon text-heading tw-text-8 tw-transition-3 font-heading fw-medium"
+                            >BSc</span
+                          >
+                          <span
+                            class="text-heading fw-bold text-center tw-transition-3 tw-text-2xl fw-medium"
+                            >Electronics Engineering</span
+                          >
+                        </span>
+                        <i class="tw-btn-circle-dot bg-main-two-600"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg">
                   <div class="text-center">
                     <h2
-                      class="about-three-title text-heading tw-text-15 tw-itm-title tw-itm-anim"
+                      class="about-three-title text-heading tw-text-15 tw-itm-title tw-itm-anim text-center"
                     >
                       I am dedicated to pushing the boundaries of robotics,
                       embedded systems, and electronics — building real
@@ -481,6 +510,8 @@
                   </div>
                 </div>
               </div>
+              <!-- ==================== Temporarily Ignored: Profile Picture & Bio Paragraphs (Preserved for future restoration) ==================== -->
+              <!--
               <div class="row">
                 <div class="col-xl-6">
                   <div
@@ -529,31 +560,12 @@
                         deliver real-world performance.
                       </p>
                     </div>
-                    <div class="about-three-counter d-inline-block">
-                      <div class="tw-hover-btn-wrapper d-inline-block">
-                        <a
-                          class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden border border-1 border-neutral-200"
-                          href="#about"
-                        >
-                          <span
-                            class="d-flex flex-column justify-content-center"
-                          >
-                            <span
-                              class="tw-btn-circle-icon text-heading tw-text-8 tw-transition-3 font-heading fw-medium"
-                              >BSc</span
-                            >
-                            <span
-                              class="text-heading fw-bold text-center tw-transition-3 tw-text-2xl fw-medium"
-                              >Electronics Engineering</span
-                            >
-                          </span>
-                          <i class="tw-btn-circle-dot bg-main-two-600"></i>
-                        </a>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
+              -->
+              <!-- ==================== Temporarily Ignored: Hands-on Projects & Industry Internships Counters (Preserved for future restoration) ==================== -->
+              <!--
               <div
                 class="about-three-wrap-shape d-flex justify-content-between"
               >
@@ -602,6 +614,7 @@
                   </p>
                 </div>
               </div>
+              -->
             </div>
           </div>
           <div>
