@@ -8650,11 +8650,11 @@ body.tw-magic-cursor #magic-cursor {
 .hero-v2__rail-tag {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: 1.05rem;
-  letter-spacing: 0.26em;
+  font-size: 1.25rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #383d44;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .hero-v2__rail-line {
@@ -8751,12 +8751,12 @@ body.tw-magic-cursor #magic-cursor {
 }
 
 .hero-v2__hello {
-  font-size: clamp(6rem, 12.5vw, 12rem);
+  font-size: clamp(3.8rem, 7.2vw, 6.5rem);
   font-weight: 300;
   line-height: 0.9;
   letter-spacing: -0.04em;
   color: #0d0e12;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   font-family: inherit;
 }
 
@@ -8766,31 +8766,35 @@ body.tw-magic-cursor #magic-cursor {
 }
 
 .hero-v2__tagline {
-  font-size: clamp(1.25rem, 1.8vw, 1.7rem);
+  font-size: clamp(1.4rem, 2.1vw, 2.1rem);
   color: #2b2d31;
   font-weight: 400;
-  line-height: 1.45;
-  margin-bottom: 1.25rem;
+  line-height: 1.35;
+  margin-bottom: 1.5rem;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.45rem 0.65rem;
 }
 
 .hero-v2__dash {
   color: #ff5101;
   font-weight: 700;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 .hero-v2__name {
   color: #0d0e12;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 1.25em;
+  letter-spacing: -0.015em;
 }
 
 .hero-v2__highlight {
   color: #ff5101;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.25em;
+  letter-spacing: -0.015em;
 }
 
 .hero-v2__description {
@@ -9018,12 +9022,12 @@ body.tw-magic-cursor #magic-cursor {
     white-space: nowrap;
   }
   .hero-v2__hello {
-    font-size: clamp(3.8rem, 9vw, 8.5rem);
-    margin-bottom: clamp(0.6rem, 1.2vh, 1.2rem);
+    font-size: clamp(2.8rem, 6.5vw, 4.5rem);
+    margin-bottom: clamp(0.5rem, 1vh, 1rem);
   }
   .hero-v2__tagline {
     justify-content: flex-start;
-    font-size: clamp(0.88rem, 1.6vw, 1.35rem);
+    font-size: clamp(1.15rem, 1.8vw, 1.5rem);
     margin-bottom: clamp(0.5rem, 1vh, 1rem);
   }
   .hero-v2__description {
@@ -9134,11 +9138,11 @@ body.tw-magic-cursor #magic-cursor {
     line-height: 1.15;
   }
   .hero-v2__hello {
-    font-size: clamp(2.8rem, 8.8vw, 4.4rem);
+    font-size: clamp(2.2rem, 5.8vw, 3.2rem);
     margin-bottom: clamp(0.35rem, 1vh, 0.75rem);
   }
   .hero-v2__tagline {
-    font-size: clamp(0.72rem, 2.1vw, 0.95rem);
+    font-size: clamp(0.88rem, 2.4vw, 1.15rem);
     line-height: 1.35;
     margin-bottom: clamp(0.35rem, 0.9vh, 0.7rem);
     gap: 0.25rem;
@@ -10987,8 +10991,9 @@ body.desktop-scaled-mode .hero-v2__left-rail {
 }
 
 body.desktop-scaled-mode .hero-v2__rail-tag {
-  font-size: 1.05rem !important;
-  letter-spacing: 0.26em !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
   writing-mode: vertical-rl !important;
   transform: rotate(180deg) !important;
 }
@@ -11054,16 +11059,30 @@ body.desktop-scaled-mode .hero-v2__stat-label {
 }
 
 body.desktop-scaled-mode .hero-v2__hello {
-  font-size: clamp(6rem, 12.5vw, 12rem) !important;
+  font-size: clamp(3.8rem, 7.2vw, 6.5rem) !important;
   line-height: 0.9 !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1.25rem !important;
 }
 
 body.desktop-scaled-mode .hero-v2__tagline {
-  font-size: clamp(1.25rem, 1.8vw, 1.7rem) !important;
+  font-size: clamp(1.4rem, 2.1vw, 2.1rem) !important;
   justify-content: flex-start !important;
   text-align: left !important;
-  margin-bottom: 1.25rem !important;
+  margin-bottom: 1.5rem !important;
+  display: flex !important;
+  align-items: baseline !important;
+  flex-wrap: wrap !important;
+  gap: 0.45rem 0.65rem !important;
+}
+
+body.desktop-scaled-mode .hero-v2__name {
+  font-size: 1.25em !important;
+  font-weight: 800 !important;
+}
+
+body.desktop-scaled-mode .hero-v2__highlight {
+  font-size: 1.25em !important;
+  font-weight: 700 !important;
 }
 
 body.desktop-scaled-mode .hero-v2__description {
