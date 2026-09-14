@@ -27,6 +27,98 @@
     <link rel="stylesheet" href="assets/css/aos.css" />
     <!-- Main css -->
     <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Universal Generalized Desktop Scaling Engine -->
+    <script>
+      (function () {
+        function getBaseDesktopWidth() {
+          if (window.screen && window.screen.width >= 1024) {
+            return window.screen.width;
+          }
+          return 1536;
+        }
+
+        function neutralizeCollapsingMediaQueries() {
+          for (let sheet of document.styleSheets) {
+            try {
+              if (!sheet.cssRules) continue;
+              for (let rule of sheet.cssRules) {
+                if (rule instanceof CSSMediaRule && rule.conditionText) {
+                  const cond = rule.conditionText;
+                  if (cond.includes('max-width')) {
+                    rule.media.mediaText = 'not all';
+                  } else if (
+                    cond.includes('min-width: 992px') ||
+                    cond.includes('min-width: 1200px') ||
+                    cond.includes('min-width: 1400px')
+                  ) {
+                    rule.media.mediaText = 'all';
+                  }
+                }
+              }
+            } catch (e) {}
+          }
+        }
+
+        function applyDesktopScale() {
+          const baseWidth = getBaseDesktopWidth();
+          const winWidth = window.innerWidth;
+          const scale = Math.min(1.0, winWidth / baseWidth);
+
+          document.documentElement.classList.add('desktop-scaled-mode');
+          if (document.body) {
+            document.body.classList.add('desktop-scaled-mode');
+            document.body.style.zoom = scale;
+            document.body.style.minWidth = baseWidth + 'px';
+          }
+
+          if (window.ScrollTrigger) {
+            window.ScrollTrigger.refresh();
+          }
+        }
+
+        // Configure viewport on mobile devices to render desktop canvas
+        const isMobile =
+          /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent,
+          ) ||
+          (window.innerWidth <= 768 &&
+            ('ontouchstart' in window || navigator.maxTouchPoints > 0));
+        if (isMobile) {
+          const metaViewport = document.querySelector('meta[name="viewport"]');
+          if (metaViewport) {
+            metaViewport.setAttribute(
+              'content',
+              'width=1536, initial-scale=' +
+                window.screen.width / 1536 +
+                ', user-scalable=yes',
+            );
+          }
+        }
+
+        applyDesktopScale();
+
+        document.addEventListener('DOMContentLoaded', function () {
+          neutralizeCollapsingMediaQueries();
+          applyDesktopScale();
+        });
+
+        window.addEventListener('load', function () {
+          neutralizeCollapsingMediaQueries();
+          applyDesktopScale();
+        });
+
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+          applyDesktopScale();
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function () {
+            neutralizeCollapsingMediaQueries();
+            applyDesktopScale();
+          }, 80);
+        });
+      })();
+    </script>
   </head>
 
   <body class="tw-magic-cursor">
@@ -283,7 +375,7 @@
           <!-- Logo End  -->
 
           <!-- Menu Start  -->
-          <div class="header-three-social d-none d-lg-block">
+          <div class="header-three-social">
             <ul class="d-flex tw-gap-205">
               <li>
                 <a
