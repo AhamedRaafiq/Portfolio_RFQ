@@ -350,7 +350,7 @@
             <!-- Menu Button End  -->
 
             <!-- Header Button Start  -->
-            <div class="header-three-button d-none d-md-block">
+            <div class="header-three-button">
               <a
                 class="tw-hover-btn bg-black text-white fw-bold tw-py-4 tw-px-10 d-inline-block hover-text-white text-uppercase tw-rounded-md"
                 href="../CV/Raafiq_Resume_(R1).pdf"
@@ -370,8 +370,11 @@
     <!-- ==================== Header End Here ==================== -->
     <div id="smooth-wrapper">
       <div id="smooth-content">
-        <!-- ==================== Hero Section Start ==================== -->
-        <section id="home" class="hero-new">
+        <!-- ==========================================================================
+             HERO SECTION - VERSION 1 (Clean White Card & Right-Photo Layout)
+             [HOW TO SWITCH]: Remove 'd-none' from #hero-v1 and add 'd-none' to #hero-v2
+             ========================================================================== -->
+        <section id="hero-v1" class="hero-new d-none">
           <!-- Hero Content -->
           <div class="container tw-container-1800-px hero-new__container">
             <div class="hero-new__content">
@@ -464,6 +467,114 @@
             <div class="hero-new__scroll-arrow">
               <span></span>
               <span></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================================================
+             HERO SECTION - VERSION 2 (Editorial Black, White & Orange Mockup Layout)
+             [HOW TO SWITCH]: To use Version 1, add 'd-none' to #hero-v2 and remove 'd-none' from #hero-v1
+             ========================================================================== -->
+        <section id="hero-v2" class="hero-v2 position-relative overflow-hidden">
+          <!-- Target anchor for smooth scrolling -->
+          <span id="home" class="hero-v2__anchor"></span>
+
+          <!-- Giant Background Watermark Typography -->
+          <div class="hero-v2__watermark" aria-hidden="true">PORTFOLIO</div>
+
+          <!-- Left Vertical Track: Tag + Rule + Year -->
+          <div class="hero-v2__left-rail" data-aos="fade" data-aos-duration="1000">
+            <span class="hero-v2__rail-tag">Electronics &amp; Robotics Engineer</span>
+            <span class="hero-v2__rail-line"></span>
+            <span class="hero-v2__rail-year">2026</span>
+          </div>
+
+          <div class="container tw-container-1800-px hero-v2__container">
+            <div class="hero-v2__grid">
+              
+              <!-- Left Column: Stats + Big "Hello" + Bio Line + Action Buttons -->
+              <div class="hero-v2__left-col" data-aos="fade-right" data-aos-duration="1000">
+                
+                <!-- Stats Row (Top Left) -->
+                <div class="hero-v2__stats">
+                  <div class="hero-v2__stat-item">
+                    <h3 class="hero-v2__stat-num">
+                      <span class="hero-v2__stat-plus">+</span><span
+                        class="purecounter"
+                        data-purecounter-duration="2"
+                        data-purecounter-end="6"
+                      >6</span>
+                    </h3>
+                    <p class="hero-v2__stat-label">Projects Built</p>
+                  </div>
+                  <div class="hero-v2__stat-item">
+                    <h3 class="hero-v2__stat-num">
+                      <span class="hero-v2__stat-plus">+</span><span
+                        class="purecounter"
+                        data-purecounter-duration="2"
+                        data-purecounter-end="2"
+                      >2</span>
+                    </h3>
+                    <p class="hero-v2__stat-label">Industry Internships</p>
+                  </div>
+                  <div class="hero-v2__stat-item">
+                    <h3 class="hero-v2__stat-num">
+                      <span class="hero-v2__stat-plus">+</span><span
+                        class="purecounter"
+                        data-purecounter-duration="2"
+                        data-purecounter-end="5"
+                      >5</span>
+                    </h3>
+                    <p class="hero-v2__stat-label">Certifications Earned</p>
+                  </div>
+                </div>
+
+                <!-- Main Greeting Typography -->
+                <div class="hero-v2__heading-wrap">
+                  <h1 class="hero-v2__hello">
+                    Hello<span class="hero-v2__hello-dot">.</span>
+                  </h1>
+                  <p class="hero-v2__tagline">
+                    <span class="hero-v2__dash">—</span> It's <strong class="hero-v2__name">Ahamed Raafiq</strong>, an <span class="hero-v2__highlight">Electronics &amp; Robotics Engineer</span>
+                  </p>
+                  <p class="hero-v2__description">
+                    Designing, building, and optimizing innovative electronic systems, embedded firmware, and autonomous robotics for complex real-world challenges.
+                  </p>
+                  <div class="hero-v2__cta-row">
+                    <a class="hero-v2__btn hero-v2__btn--primary" href="#portfolio">
+                      <span>VIEW PROJECTS</span>
+                      <i class="hero-v2__btn-arrow">↗</i>
+                    </a>
+                    <a class="hero-v2__btn hero-v2__btn--ghost" href="../CV/Raafiq_Resume_(R1).pdf" download="Ahamed_Raafiq_Resume.pdf">
+                      <span>DOWNLOAD CV</span>
+                      <i class="hero-v2__btn-arrow">↗</i>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Right Column: Center-Right Blended Portrait -->
+              <div class="hero-v2__right-col" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                <div class="hero-v2__portrait-box">
+                  <img
+                    src="assets/images/thumbs/about-three-thumb.jpg"
+                    alt="Ahamed Raafiq - Electronics Engineer"
+                    class="hero-v2__portrait-img"
+                  />
+                  <!-- Bottom soft fade blend gradient overlay -->
+                  <div class="hero-v2__portrait-fade"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Bottom Bar / Scroll Down Indicator -->
+            <div class="hero-v2__bottom-bar">
+              <a href="#about" class="hero-v2__scroll-down">
+                <span>Scroll down</span>
+                <span class="hero-v2__scroll-arrow">↓</span>
+              </a>
             </div>
           </div>
         </section>
