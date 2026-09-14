@@ -8644,7 +8644,7 @@ body.tw-magic-cursor #magic-cursor {
   gap: 1.5rem;
   z-index: 3;
   pointer-events: none;
-  transform: none;
+  transform: translateY(1.2cm);
 }
 
 .hero-v2__rail-tag {
@@ -8700,7 +8700,7 @@ body.tw-magic-cursor #magic-cursor {
   align-self: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  transform: translateY(2.8cm);
+  transform: translateY(1.5cm);
 }
 
 /* Stats Section (Top-Left) */
@@ -8908,8 +8908,8 @@ body.tw-magic-cursor #magic-cursor {
 /* Bottom Bar & Scroll Indicator */
 .hero-v2__bottom-bar {
   position: absolute;
-  bottom: 22%;
-  right: 3.5rem;
+  bottom: clamp(14%, 18vh, 22%);
+  right: clamp(2rem, 3.5vw, 4.5rem);
   z-index: 10;
   margin: 0;
   padding: 0;
@@ -10983,7 +10983,7 @@ body.desktop-scaled-mode .hero-v2__left-rail {
   margin-bottom: auto !important;
   height: max-content !important;
   gap: 1.5rem !important;
-  transform: none !important;
+  transform: translateY(1.2cm) !important;
 }
 
 body.desktop-scaled-mode .hero-v2__rail-tag {
@@ -11030,7 +11030,7 @@ body.desktop-scaled-mode .hero-v2__left-col {
   align-self: center !important;
   align-items: flex-start !important;
   text-align: left !important;
-  transform: translateY(2.8cm) !important;
+  transform: translateY(1.5cm) !important;
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
 }
@@ -11123,8 +11123,8 @@ body.desktop-scaled-mode .hero-v2__portrait-img {
 
 body.desktop-scaled-mode .hero-v2__bottom-bar {
   position: absolute !important;
-  bottom: 22% !important;
-  right: 3.5rem !important;
+  bottom: clamp(14%, 18vh, 22%) !important;
+  right: clamp(2rem, 3.5vw, 4.5rem) !important;
   z-index: 10 !important;
   margin: 0 !important;
   padding: 0 !important;
