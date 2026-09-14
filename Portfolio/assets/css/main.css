@@ -8908,7 +8908,7 @@ body.tw-magic-cursor #magic-cursor {
 /* Bottom Bar & Scroll Indicator */
 .hero-v2__bottom-bar {
   position: absolute;
-  bottom: clamp(14%, 18vh, 22%);
+  bottom: clamp(1.5rem, 3vh, 2.5rem);
   right: clamp(2rem, 3.5vw, 4.5rem);
   z-index: 10;
   margin: 0;
@@ -9071,7 +9071,7 @@ body.tw-magic-cursor #magic-cursor {
   }
   .hero-v2__bottom-bar {
     position: absolute;
-    bottom: clamp(1rem, 14vh, 20%);
+    bottom: clamp(1.2rem, 2.5vh, 2rem);
     right: clamp(1rem, 3.5vw, 3rem);
     z-index: 10;
     margin: 0;
@@ -11123,7 +11123,7 @@ body.desktop-scaled-mode .hero-v2__portrait-img {
 
 body.desktop-scaled-mode .hero-v2__bottom-bar {
   position: absolute !important;
-  bottom: clamp(14%, 18vh, 22%) !important;
+  bottom: clamp(1.5rem, 3vh, 2.5rem) !important;
   right: clamp(2rem, 3.5vw, 4.5rem) !important;
   z-index: 10 !important;
   margin: 0 !important;
