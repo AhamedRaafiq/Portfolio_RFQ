@@ -7,15 +7,15 @@ if ($("body").not(".is-mobile").hasClass("tw-magic-cursor")) {
 
   var $mouse = { x: 0, y: 0 }; // Cursor position
   var $pos = { x: 0, y: 0 }; // Cursor position
-  var $ratio = 0.15; // delay follow cursor
+  var $ratio = 0.5; // smooth responsive cursor follow
   var $active = false;
   var $ball = $("#ball");
 
-  var $ballWidth = 5; // Ball default width
-  var $ballHeight = 5; // Ball default height
+  var $ballWidth = 10; // Ball default width
+  var $ballHeight = 10; // Ball default height
   var $ballScale = 1; // Ball default scale
   var $ballOpacity = 1; // Ball default opacity
-  var $ballBorderWidth = 1; // Ball default border width
+  var $ballBorderWidth = 0; // Ball default border width
 
   gsap.set($ball, {
     // scale from middle and style ball
@@ -47,17 +47,23 @@ if ($("body").not(".is-mobile").hasClass("tw-magic-cursor")) {
 
   // Show/hide magic cursor //
 
-  // Hide on hover//
-  $("a, button, .tw-cart-minus, .tw-cart-plus") // class "hide-cursor" is for global use.
-    .not(".cursor-hide") // omit from selection.
+  // Expand on hover over interactive elements //
+  $("a, button, .tw-cart-minus, .tw-cart-plus, [role='button']")
+    .not(".cursor-hide")
     .on("mouseenter", function () {
-      gsap.to($ball, { duration: 0.3, scale: 0, opacity: 0 });
+      gsap.to($ball, {
+        duration: 0.25,
+        scale: 2.2,
+        opacity: 0.85,
+        backgroundColor: "#ff5101",
+      });
     })
     .on("mouseleave", function () {
       gsap.to($ball, {
-        duration: 0.3,
+        duration: 0.25,
         scale: $ballScale,
         opacity: $ballOpacity,
+        backgroundColor: "#ff5101",
       });
     });
 
@@ -117,7 +123,7 @@ if ($("body").not(".is-mobile").hasClass("tw-magic-cursor")) {
           height: $ballHeight,
           opacity: $ballOpacity,
           borderWidth: $ballBorderWidth,
-          backgroundColor: "#1c1d21",
+          backgroundColor: "#ff5101",
         });
         gsap.to(".ball-view", {
           duration: 0.3,
