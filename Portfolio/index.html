@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="description"
-      content="Personal portfolio of Ahamed Raafiq — Electronics Engineer specializing in Robotics & Autonomous Systems, Embedded Systems, PCB Design, and UAV systems. Based in Colombo, Sri Lanka."
+      content="Personal portfolio of Ahamed Raafiq — Robotics Engineer specializing in Autonomous Systems, ROS2, Embedded Systems, Electronics Hardware, and UAV systems. Based in Colombo, Sri Lanka."
     />
     <meta
       name="keywords"
-      content="Ahamed Raafiq, Electronics Engineer, Robotics, ROS2, Embedded Systems, PCB Design, UAV, Arduino, ESP32, Portfolio, Colombo, Sri Lanka"
+      content="Ahamed Raafiq, Robotics Engineer, Electronics Engineering, Robotics, ROS2, Embedded Systems, PCB Design, UAV, Arduino, ESP32, Portfolio, Colombo, Sri Lanka"
     />
     <meta name="robots" content="INDEX,FOLLOW" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Title -->
-    <title>Ahamed Raafiq — Electronics Engineer | Robotics & Autonomous Systems</title>
+    <title>Ahamed Raafiq — Robotics Engineer</title>
     <!-- Favicon -->
     <link rel="icon" href="assets/images/logo/favicon.png" type="image/png" />
     <!-- Bootstrap -->
@@ -27,6 +27,98 @@
     <link rel="stylesheet" href="assets/css/aos.css" />
     <!-- Main css -->
     <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Universal Generalized Desktop Scaling Engine -->
+    <script>
+      (function () {
+        function getBaseDesktopWidth() {
+          if (window.screen && window.screen.width >= 1024) {
+            return window.screen.width;
+          }
+          return 1536;
+        }
+
+        function neutralizeCollapsingMediaQueries() {
+          for (let sheet of document.styleSheets) {
+            try {
+              if (!sheet.cssRules) continue;
+              for (let rule of sheet.cssRules) {
+                if (rule instanceof CSSMediaRule && rule.conditionText) {
+                  const cond = rule.conditionText;
+                  if (cond.includes('max-width')) {
+                    rule.media.mediaText = 'not all';
+                  } else if (
+                    cond.includes('min-width: 992px') ||
+                    cond.includes('min-width: 1200px') ||
+                    cond.includes('min-width: 1400px')
+                  ) {
+                    rule.media.mediaText = 'all';
+                  }
+                }
+              }
+            } catch (e) {}
+          }
+        }
+
+        function applyDesktopScale() {
+          const baseWidth = getBaseDesktopWidth();
+          const winWidth = window.innerWidth;
+          const scale = Math.min(1.0, winWidth / baseWidth);
+
+          document.documentElement.classList.add('desktop-scaled-mode');
+          if (document.body) {
+            document.body.classList.add('desktop-scaled-mode');
+            document.body.style.zoom = scale;
+            document.body.style.minWidth = baseWidth + 'px';
+          }
+
+          if (window.ScrollTrigger) {
+            window.ScrollTrigger.refresh();
+          }
+        }
+
+        // Configure viewport on mobile devices to render desktop canvas
+        const isMobile =
+          /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent,
+          ) ||
+          (window.innerWidth <= 768 &&
+            ('ontouchstart' in window || navigator.maxTouchPoints > 0));
+        if (isMobile) {
+          const metaViewport = document.querySelector('meta[name="viewport"]');
+          if (metaViewport) {
+            metaViewport.setAttribute(
+              'content',
+              'width=1536, initial-scale=' +
+                window.screen.width / 1536 +
+                ', user-scalable=yes',
+            );
+          }
+        }
+
+        applyDesktopScale();
+
+        document.addEventListener('DOMContentLoaded', function () {
+          neutralizeCollapsingMediaQueries();
+          applyDesktopScale();
+        });
+
+        window.addEventListener('load', function () {
+          neutralizeCollapsingMediaQueries();
+          applyDesktopScale();
+        });
+
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+          applyDesktopScale();
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function () {
+            neutralizeCollapsingMediaQueries();
+            applyDesktopScale();
+          }, 80);
+        });
+      })();
+    </script>
   </head>
 
   <body class="tw-magic-cursor">
@@ -272,19 +364,18 @@
           class="d-flex align-items-center justify-content-between position-relative"
         >
           <!-- Logo Start -->
-          <div class="header-three-logo tw-rounded-md">
+          <div class="header-three-logo">
             <a href="index.html" class="link">
               <img
                 src="assets/images/logo/logo-secendary.png"
                 alt="Logo"
-                class="max-w-200-px"
               />
             </a>
           </div>
           <!-- Logo End  -->
 
           <!-- Menu Start  -->
-          <div class="header-three-social d-none d-lg-block">
+          <div class="header-three-social">
             <ul class="d-flex tw-gap-205">
               <li>
                 <a
@@ -351,10 +442,11 @@
             <!-- Menu Button End  -->
 
             <!-- Header Button Start  -->
-            <div class="header-three-button d-none d-md-block">
+            <div class="header-three-button">
               <a
                 class="tw-hover-btn bg-black text-white fw-bold tw-py-4 tw-px-10 d-inline-block hover-text-white text-uppercase tw-rounded-md"
-                href="#"
+                href="../CV/Raafiq_Resume_(R1).pdf"
+                download="Ahamed_Raafiq_Resume.pdf"
               >
                 download cv
                 <span class="tw-hover-btn-circle-dot bg-main-two-600"></span>
@@ -370,245 +462,255 @@
     <!-- ==================== Header End Here ==================== -->
     <div id="smooth-wrapper">
       <div id="smooth-content">
-        <section id="home" class="banner-three-area">
-          <div class="container tw-container-1800-px">
-            <div class="row">
-              <div class="col-xl-12">
-                <div class="banner-three-wrapper position-relative z-1">
-                  <div
-                    class="banner-three-man position-absolute start-50 translate-middle-x"
-                  >
-                    <img
-                      src="assets/images/shapes/banner-three-man.png"
-                      alt="man"
-                    />
+        <!-- ==========================================================================
+             HERO SECTION - VERSION 1 (Clean White Card & Right-Photo Layout)
+             [HOW TO SWITCH]: Remove 'd-none' from #hero-v1 and add 'd-none' to #hero-v2
+             ========================================================================== -->
+        <section id="hero-v1" class="hero-new d-none">
+          <!-- Hero Content -->
+          <div class="container tw-container-1800-px hero-new__container">
+            <div class="hero-new__content">
+              <!-- Left: Text Content & Stats -->
+              <div
+                class="hero-new__left"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+              >
+                <div class="hero-new__text">
+                  <h1 class="hero-new__name">AHAMED RAAFIQ</h1>
+                  <h2 class="hero-new__subtitle">
+                    Electronics Engineer | Robotics &amp; Autonomous Systems
+                  </h2>
+                  <p class="hero-new__tagline">
+                    Designing, building, and optimizing innovative electronic
+                    systems and autonomous solutions for complex real-world
+                    challenges.
+                  </p>
+                  <div class="hero-new__cta">
+                    <a
+                      class="hero-new__btn hero-new__btn--primary"
+                      href="#portfolio"
+                    >
+                      VIEW PROJECTS
+                    </a>
+                    <a
+                      class="hero-new__btn hero-new__btn--outline"
+                      href="../CV/Raafiq_Resume_(R1).pdf"
+                      download="Ahamed_Raafiq_Resume.pdf"
+                    >
+                      DOWNLOAD CV
+                    </a>
                   </div>
-                  <h1 class="banner-three-title text-black tw-mb-30">
-                    engineer
-                  </h1>
-                  <div
-                    class="banner-three-wrap d-flex justify-content-between align-items-end position-relative z-1"
-                  >
-                    <div
-                      class="banner-three-left tw-rounded-lg"
-                      data-aos="fade-up"
-                      data-aos-duration="1000"
-                      data-aos-delay="200"
-                    >
-                      <h2 class="banner-three-left-title tw-text-3xl tw-mb-6">
-                        Hello! I'm Ahamed <br />
-                        Raafiq. an electronics engineer and robotics enthusiast from Colombo.
-                      </h2>
-                      <div class="banner-three-list">
-                        <ul>
-                          <li
-                            class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4"
-                          >
-                            <span
-                              ><img
-                                src="assets/images/icons/banner-three-pluse.svg"
-                                alt="pluse"
-                            /></span>
-                            Robotics & Automation
-                          </li>
-                          <li
-                            class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4"
-                          >
-                            <span
-                              ><img
-                                src="assets/images/icons/banner-three-pluse.svg"
-                                alt="pluse"
-                            /></span>
-                            Electronics & PCB Design
-                          </li>
-                          <li
-                            class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4"
-                          >
-                            <span
-                              ><img
-                                src="assets/images/icons/banner-three-pluse.svg"
-                                alt="pluse"
-                            /></span>
-                            Embedded Systems
-                          </li>
-                          <li
-                            class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4"
-                          >
-                            <span
-                              ><img
-                                src="assets/images/icons/banner-three-pluse.svg"
-                                alt="pluse"
-                            /></span>
-                            UAV & Drone Systems
-                          </li>
-                          <li
-                            class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4"
-                          >
-                            <span
-                              ><img
-                                src="assets/images/icons/banner-three-pluse.svg"
-                                alt="pluse"
-                            /></span>
-                            Signal Processing & ML
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div
-                      class="banner-three-center text-center"
-                      data-aos="fade-up"
-                      data-aos-duration="1000"
-                      data-aos-delay="200"
-                    >
-                      <h3 class="banner-three-center-title tw-text-120">
-                        Robotics, embedded systems and electronics engineering — built from scratch.
-                      </h3>
-                      <div class="banner-three-button">
-                        <a
-                          class="tw-hover-btn bg-black text-white fw-bold tw-py-4 tw-px-10 d-inline-block hover-text-white text-uppercase tw-rounded-lg"
-                          href="#portfolio"
-                        >
-                          view projects
-                          <span
-                            class="tw-hover-btn-circle-dot bg-main-two-600"
-                          ></span>
-                        </a>
-                      </div>
-                    </div>
-                    <div
-                      class="banner-three-right tw-rounded-lg"
-                      data-aos="fade-up"
-                      data-aos-duration="1000"
-                      data-aos-delay="300"
-                    >
-                      <div
-                        class="banner-three-counter-item tw-rounded-md tw-mb-4 position-relative"
-                      >
-                        <h4
-                          class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1"
-                        >
-                          <span
-                            class="purecounter font-heading"
-                            data-purecounter-duration="2"
-                            data-purecounter-end="6"
-                          ></span>
-                        </h4>
-                        <p
-                          class="banner-three-counter-paragraph tw-text-lg fw-medium text-heading"
-                        >
-                          Projects Built
-                        </p>
-                      </div>
-                      <div
-                        class="banner-three-counter-item tw-rounded-md tw-mb-4 ms-auto bg-black"
-                      >
-                        <h4
-                          class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-white tw-mb-2 lh-1"
-                        >
-                          <span
-                            class="purecounter font-heading"
-                            data-purecounter-duration="4"
-                            data-purecounter-end="2"
-                          ></span>
-                        </h4>
-                        <p
-                          class="banner-three-counter-paragraph tw-text-lg fw-medium text-white"
-                        >
-                          Industry Internships
-                        </p>
-                      </div>
-                      <div
-                        class="banner-three-counter-item tw-rounded-md tw-mb-4"
-                      >
-                        <div class="d-flex align-items-center tw-mb-2">
-                          <div
-                            class="tw-w-9 tw-h-9 rounded-circle overflow-hidden tw-duration-300 hover-scale-2 tw-hover-z-9 position-relative z-1 border border-2 border-white"
-                          >
-                            <img
-                              src="assets/images/thumbs/team-img1.png"
-                              alt="Client Image"
-                              class="w-100 h-100 object-fit-cover"
-                            />
-                          </div>
-                          <div
-                            class="tw-w-9 tw-h-9 rounded-circle overflow-hidden tw-duration-300 hover-scale-2 tw-hover-z-9 position-relative z-2 tw--ms-16-px z-1 border border-2 border-white"
-                          >
-                            <img
-                              src="assets/images/thumbs/team-img2.png"
-                              alt="Client Image"
-                              class="w-100 h-100 object-fit-cover"
-                            />
-                          </div>
-                          <div
-                            class="tw-w-9 tw-h-9 rounded-circle overflow-hidden tw-duration-300 hover-scale-2 tw-hover-z-9 position-relative z-3 tw--ms-16-px z-1 border border-2 border-white"
-                          >
-                            <img
-                              src="assets/images/thumbs/team-img3.png"
-                              alt="Client Image"
-                              class="w-100 h-100 object-fit-cover"
-                            />
-                          </div>
-                          <div
-                            class="tw-w-9 tw-h-9 rounded-circle overflow-hidden tw-duration-300 hover-scale-2 tw-hover-z-9 position-relative z-3 tw--ms-16-px z-1 border border-2 border-white"
-                          >
-                            <img
-                              src="assets/images/thumbs/team-img4.png"
-                              alt="Client Image"
-                              class="w-100 h-100 object-fit-cover"
-                            />
-                          </div>
-                        </div>
-                        <h4
-                          class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1"
-                        >
-                          <span
-                            class="purecounter font-heading"
-                            data-purecounter-duration="3"
-                            data-purecounter-end="5"
-                          ></span>
-                        </h4>
-                        <p
-                          class="banner-three-counter-paragraph tw-text-lg fw-medium text-heading"
-                        >
-                          Certifications Earned
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="banner-three-line-shape position-absolute start-50 translate-middle-x z-n1"
-                    >
-                      <img
-                        src="assets/images/shapes/banner-three-shape.png"
-                        alt="shape"
-                      />
-                      <div class="banner-three-carcel-shape">
-                        <div><span></span></div>
-                      </div>
-                    </div>
+                </div>
+                <!-- Stats Cards (below CTA buttons) -->
+                <div class="hero-new__stats">
+                  <div class="hero-new__stat-card">
+                    <h3 class="hero-new__stat-number">
+                      <span
+                        class="purecounter"
+                        data-purecounter-duration="2"
+                        data-purecounter-end="6"
+                      ></span><span class="hero-new__stat-suffix">+</span>
+                    </h3>
+                    <p class="hero-new__stat-label">Projects Built</p>
                   </div>
+                  <div class="hero-new__stat-card">
+                    <h3 class="hero-new__stat-number">
+                      <span
+                        class="purecounter"
+                        data-purecounter-duration="3"
+                        data-purecounter-end="2"
+                      ></span>
+                    </h3>
+                    <p class="hero-new__stat-label">Industry Internships</p>
+                  </div>
+                  <div class="hero-new__stat-card">
+                    <h3 class="hero-new__stat-number">
+                      <span
+                        class="purecounter"
+                        data-purecounter-duration="3"
+                        data-purecounter-end="5"
+                      ></span>
+                    </h3>
+                    <p class="hero-new__stat-label">Certifications Earned</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Right: Profile Image -->
+              <div
+                class="hero-new__right"
+                data-aos="fade-left"
+                data-aos-duration="1000"
+                data-aos-delay="200"
+              >
+                <div class="hero-new__profile-wrap">
+                  <img
+                    src="assets/images/thumbs/about-three-thumb.jpg"
+                    alt="Ahamed Raafiq - Electronics Engineer"
+                    class="hero-new__profile-img"
+                  />
                 </div>
               </div>
             </div>
           </div>
+          <!-- Scroll Down Indicator -->
+          <div class="hero-new__scroll-indicator">
+            <span class="hero-new__scroll-text">Scroll Down</span>
+            <div class="hero-new__scroll-arrow">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
         </section>
+
+        <!-- ==========================================================================
+             HERO SECTION - VERSION 2 (Editorial Black, White & Orange Mockup Layout)
+             [HOW TO SWITCH]: To use Version 1, add 'd-none' to #hero-v2 and remove 'd-none' from #hero-v1
+             ========================================================================== -->
+        <section id="hero-v2" class="hero-v2 position-relative overflow-hidden">
+          <!-- Target anchor for smooth scrolling -->
+          <span id="home" class="hero-v2__anchor"></span>
+
+          <!-- Giant Background Watermark Typography -->
+          <div class="hero-v2__watermark" aria-hidden="true">RAAFIQ</div>
+
+          <!-- Left Vertical Track: Tag + Rule + Year -->
+          <div class="hero-v2__left-rail" data-aos="fade" data-aos-duration="1000">
+            <span class="hero-v2__rail-tag">Robotics Engineer</span>
+            <span class="hero-v2__rail-line"></span>
+            <span class="hero-v2__rail-year">2026</span>
+          </div>
+
+          <div class="container tw-container-1800-px hero-v2__container">
+            <div class="hero-v2__grid">
+              
+              <!-- Left Column: Stats + Big "Hello" + Bio Line + Action Buttons -->
+              <div class="hero-v2__left-col" data-aos="fade-right" data-aos-duration="1000">
+                
+                <!-- Stats Row (Top Left) -->
+                <div class="hero-v2__stats">
+                  <div class="hero-v2__stat-item">
+                    <h3 class="hero-v2__stat-num">
+                      <span class="hero-v2__stat-plus">+</span><span
+                        class="purecounter"
+                        data-purecounter-duration="2"
+                        data-purecounter-end="6"
+                      >6</span>
+                    </h3>
+                    <p class="hero-v2__stat-label">Projects Built</p>
+                  </div>
+                  <div class="hero-v2__stat-item">
+                    <h3 class="hero-v2__stat-num">
+                      <span class="hero-v2__stat-plus">+</span><span
+                        class="purecounter"
+                        data-purecounter-duration="2"
+                        data-purecounter-end="2"
+                      >2</span>
+                    </h3>
+                    <p class="hero-v2__stat-label">Industry Internships</p>
+                  </div>
+                  <div class="hero-v2__stat-item">
+                    <h3 class="hero-v2__stat-num">
+                      <span class="hero-v2__stat-plus">+</span><span
+                        class="purecounter"
+                        data-purecounter-duration="2"
+                        data-purecounter-end="5"
+                      >5</span>
+                    </h3>
+                    <p class="hero-v2__stat-label">Certifications Earned</p>
+                  </div>
+                </div>
+
+                <!-- Main Greeting Typography -->
+                <div class="hero-v2__heading-wrap">
+                  <h1 class="hero-v2__hello">
+                    Hello<span class="hero-v2__hello-dot">.</span>
+                  </h1>
+                  <p class="hero-v2__tagline">
+                    <span class="hero-v2__dash">—</span> It's <strong class="hero-v2__name">Ahamed Raafiq</strong> <span class="hero-v2__highlight">Robotics Engineer</span>
+                  </p>
+                  <p class="hero-v2__description">
+                    Designing, building, and optimizing intelligent robotic systems, embedded firmware, and autonomous solutions for complex real-world challenges.
+                  </p>
+                  <div class="hero-v2__cta-row">
+                    <a class="hero-v2__btn hero-v2__btn--primary" href="#portfolio">
+                      <span>VIEW PROJECTS</span>
+                      <i class="hero-v2__btn-arrow">↗</i>
+                    </a>
+                    <a class="hero-v2__btn hero-v2__btn--ghost" href="../CV/Raafiq_Resume_(R1).pdf" download="Ahamed_Raafiq_Resume.pdf">
+                      <span>DOWNLOAD CV</span>
+                      <i class="hero-v2__btn-arrow">↗</i>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Right Column: Center-Right Blended Portrait -->
+              <div class="hero-v2__right-col" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                <div class="hero-v2__portrait-box">
+                  <img
+                    src="assets/images/thumbs/about-three-thumb.jpg"
+                    alt="Ahamed Raafiq - Robotics Engineer"
+                    class="hero-v2__portrait-img"
+                  />
+                  <!-- Bottom soft fade blend gradient overlay -->
+                  <div class="hero-v2__portrait-fade"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Bar / Scroll Down Indicator (Right side of image in open canvas space) -->
+          <div class="hero-v2__bottom-bar">
+            <a href="#about" class="hero-v2__scroll-down">
+              <span>Scroll down</span>
+              <span class="hero-v2__scroll-arrow">↓</span>
+            </a>
+          </div>
+        </section>
+        <!-- ==================== Hero Section End ==================== -->
         <section id="about" class="about-three-area py-120 position-relative z-1">
-          <div class="container tw-container-1800-px">
+          <div class="container tw-container-1800-px about-three-container">
             <div class="about-three-top position-relative z-1">
-              <div class="row justify-content-center tw-mb-21">
-                <div class="col-xl-9">
-                  <div class="text-center">
+              <div class="row align-items-center justify-content-center tw-mb-21 gy-4">
+                <div class="col-lg-auto text-center">
+                  <div class="about-three-counter d-inline-block">
+                    <div class="tw-hover-btn-wrapper d-inline-block">
+                      <a
+                        class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden border border-1 border-neutral-200"
+                        href="#about"
+                      >
+                        <span
+                          class="d-flex flex-column justify-content-center"
+                        >
+                          <span
+                            class="tw-btn-circle-icon text-heading tw-text-8 tw-transition-3 font-heading fw-medium"
+                            >BSc</span
+                          >
+                          <span
+                            class="text-heading fw-bold text-center tw-transition-3 tw-text-2xl fw-medium"
+                            >Electronics Engineering</span
+                          >
+                        </span>
+                        <i class="tw-btn-circle-dot bg-main-two-600"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg">
+                  <div class="about-three-content text-start">
                     <h2
-                      class="about-three-title text-heading tw-text-15 tw-itm-title tw-itm-anim"
+                      class="about-three-title text-heading tw-text-15 tw-itm-title tw-itm-anim text-start"
                     >
-                      I am dedicated to pushing the boundaries of robotics,
-                      embedded systems, and electronics — building real
-                      hardware that solves real problems. From concept to
-                      deployment, my work bridges the gap between digital
-                      simulation and physical systems.
+                      Electronics Engineer specializing in Robotics &amp; Autonomous Systems — I build real hardware that thinks, senses, and moves. From PCB design and embedded firmware to sensor fusion and ROS2-based control, I turn digital models into working systems. Precision-driven and endlessly&nbsp;curious, I go deep where hardware meets intelligence.
                     </h2>
                   </div>
                 </div>
               </div>
+              <!-- ==================== Temporarily Ignored: Profile Picture & Bio Paragraphs (Preserved for future restoration) ==================== -->
+              <!--
               <div class="row">
                 <div class="col-xl-6">
                   <div
@@ -657,31 +759,12 @@
                         deliver real-world performance.
                       </p>
                     </div>
-                    <div class="about-three-counter d-inline-block">
-                      <div class="tw-hover-btn-wrapper d-inline-block">
-                        <a
-                          class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden border border-1 border-neutral-200"
-                          href="#about"
-                        >
-                          <span
-                            class="d-flex flex-column justify-content-center"
-                          >
-                            <span
-                              class="tw-btn-circle-icon text-heading tw-text-8 tw-transition-3 font-heading fw-medium"
-                              >BSc</span
-                            >
-                            <span
-                              class="text-heading fw-bold text-center tw-transition-3 tw-text-2xl fw-medium"
-                              >Electronics Engineering</span
-                            >
-                          </span>
-                          <i class="tw-btn-circle-dot bg-main-two-600"></i>
-                        </a>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
+              -->
+              <!-- ==================== Temporarily Ignored: Hands-on Projects & Industry Internships Counters (Preserved for future restoration) ==================== -->
+              <!--
               <div
                 class="about-three-wrap-shape d-flex justify-content-between"
               >
@@ -730,6 +813,7 @@
                   </p>
                 </div>
               </div>
+              -->
             </div>
           </div>
           <div>
@@ -784,14 +868,15 @@
         </div>
         <!-- ======================== Marquee section end =========================== -->
         <section id="services" class="service-three-area bg-black pt-120 tw-pb-15">
-          <div class="container tw-container-1800-px">
+          <div class="container tw-container-1800-px service-three-container">
             <div class="row">
               <div class="col-12">
                 <div class="service-three-wrapper">
+                  <!-- ==================== Service 01: Robotics & Automation ==================== -->
                   <div
                     class="service-three-single"
                     data-aos="fade-right"
-                    data-aos-duration="2000"
+                    data-aos-duration="1500"
                     data-aos-delay="200"
                   >
                     <div
@@ -813,9 +898,7 @@
                             <h2
                               class="service-three-title tw-text-15 text-white tw-mb-4"
                             >
-                              <a href="#services"
-                                >Robotics & Automation</a
-                              >
+                              <a href="#services">Robotics &amp; Automation</a>
                             </h2>
                           </div>
                           <div class="portfolio-list portfolio-two-list">
@@ -823,29 +906,50 @@
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >ROS2</a
+                                  href="#services"
+                                  >ROS2 (Python, C++)</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >Gazebo</a
+                                  href="#services"
+                                  >Gazebo Simulation</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >Motion Planning</a
+                                  href="#services"
+                                  >URDF / Transform Trees</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >Sensor Fusion</a
+                                  href="#services"
+                                  >TF2</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Sensor Fusion (Madgwick AHRS)</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Nav2 Path Planning</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Multi-DOF Robotic Arm Control &amp; Motion Planning</a
                                 >
                               </li>
                             </ul>
@@ -856,16 +960,18 @@
                         <a href="#services"
                           ><img
                             src="assets/images/thumbs/service-three-thumb1.png"
-                            alt="thumb1"
+                            alt="Robotics &amp; Automation"
                         /></a>
                       </div>
                     </div>
                   </div>
+
+                  <!-- ==================== Service 02: Control Systems ==================== -->
                   <div
                     class="service-three-single ms-auto"
                     data-aos="fade-left"
-                    data-aos-duration="2000"
-                    data-aos-delay="300"
+                    data-aos-duration="1500"
+                    data-aos-delay="250"
                   >
                     <div
                       class="service-three-item d-flex justify-content-between align-items-center"
@@ -886,9 +992,7 @@
                             <h2
                               class="service-three-title tw-text-15 text-white tw-mb-4"
                             >
-                              <a href="#services"
-                                >Electronics & PCB Design</a
-                              >
+                              <a href="#services">Control Systems</a>
                             </h2>
                           </div>
                           <div class="portfolio-list portfolio-two-list">
@@ -896,29 +1000,36 @@
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >Altium Designer</a
+                                  href="#services"
+                                  >PID Tuning (MATLAB)</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >Cadence</a
+                                  href="#services"
+                                  >Feedback Control Systems</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >Power Electronics</a
+                                  href="#services"
+                                  >Sensor &amp; Actuator Integration</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >Proteus</a
+                                  href="#services"
+                                  >Real-Time Data Acquisition</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Instrumentation &amp; Measurement</a
                                 >
                               </li>
                             </ul>
@@ -929,16 +1040,18 @@
                         <a href="#services"
                           ><img
                             src="assets/images/thumbs/service-three-thumb2.png"
-                            alt="thumb1"
+                            alt="Control Systems"
                         /></a>
                       </div>
                     </div>
                   </div>
+
+                  <!-- ==================== Service 03: Embedded Systems ==================== -->
                   <div
                     class="service-three-single"
                     data-aos="fade-right"
-                    data-aos-duration="2000"
-                    data-aos-delay="400"
+                    data-aos-duration="1500"
+                    data-aos-delay="200"
                   >
                     <div
                       class="service-three-item d-flex justify-content-between align-items-center"
@@ -967,29 +1080,78 @@
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >ESP32</a
+                                  href="#services"
+                                  >Embedded C/C++</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >Arduino</a
+                                  href="#services"
+                                  >Microcontroller Firmware (Arduino, ESP32-S3)</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >Firmware</a
+                                  href="#services"
+                                  >Raspberry Pi</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >I2C/SPI/UART</a
+                                  href="#services"
+                                  >PWM Motor Control</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >IMU Sensor (MPU6050)</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Battery Management System (18650 Cells)</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >H-Bridge &amp; Motor Drivers (TB6612FNG, BCA8016)</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Buck Converters (XL4016)</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Servo Control</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >I2C / UART / USB-CDC / SPI</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >ESP-IDF</a
                                 >
                               </li>
                             </ul>
@@ -1000,16 +1162,18 @@
                         <a href="#services"
                           ><img
                             src="assets/images/thumbs/service-three-thumb3.png"
-                            alt="thumb1"
+                            alt="Embedded Systems"
                         /></a>
                       </div>
                     </div>
                   </div>
+
+                  <!-- ==================== Service 04: PCB Design ==================== -->
                   <div
                     class="service-three-single ms-auto"
                     data-aos="fade-left"
-                    data-aos-duration="2000"
-                    data-aos-delay="500"
+                    data-aos-duration="1500"
+                    data-aos-delay="250"
                   >
                     <div
                       class="service-three-item d-flex justify-content-between align-items-center"
@@ -1030,9 +1194,7 @@
                             <h2
                               class="service-three-title tw-text-15 text-white tw-mb-4"
                             >
-                              <a href="#services"
-                                >UAV & Drone Systems</a
-                              >
+                              <a href="#services">PCB Design</a>
                             </h2>
                           </div>
                           <div class="portfolio-list portfolio-two-list">
@@ -1040,29 +1202,57 @@
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >PX4</a
+                                  href="#services"
+                                  >Altium Designer</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >QGroundControl</a
+                                  href="#services"
+                                  >Cadence</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >LiDAR</a
+                                  href="#services"
+                                  >Proteus</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
-                                  >Telemetry</a
+                                  href="#services"
+                                  >Multisim</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Schematic Capture &amp; PCB Layout</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Component Selection</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Power Integrity</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Gerber &amp; BOM Generation</a
                                 >
                               </li>
                             </ul>
@@ -1073,7 +1263,341 @@
                         <a href="#services"
                           ><img
                             src="assets/images/thumbs/service-three-thumb4.png"
-                            alt="thumb1"
+                            alt="PCB Design"
+                        /></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ==================== Service 05: UAV & Drone Systems ==================== -->
+                  <div
+                    class="service-three-single"
+                    data-aos="fade-right"
+                    data-aos-duration="1500"
+                    data-aos-delay="200"
+                  >
+                    <div
+                      class="service-three-item d-flex justify-content-between align-items-center"
+                    >
+                      <div class="service-three-content d-flex tw-gap-14">
+                        <div>
+                          <span
+                            class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3"
+                            >05
+                            <img
+                              class="tw-transition-3"
+                              src="assets/images/icons/service-three-arrow.svg"
+                              alt="arrow"
+                          /></span>
+                        </div>
+                        <div>
+                          <div>
+                            <h2
+                              class="service-three-title tw-text-15 text-white tw-mb-4"
+                            >
+                              <a href="#services">UAV &amp; Drone Systems</a>
+                            </h2>
+                          </div>
+                          <div class="portfolio-list portfolio-two-list">
+                            <ul class="d-flex tw-gap-205 flex-wrap">
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >PX4 Flight-Controller Firmware</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >QGroundControl (Mission &amp; Manual Control)</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Flight Parameter Tuning</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >UAV Avionics</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Telemetry Capture</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="service-three-thumb">
+                        <a href="#services"
+                          ><img
+                            src="assets/images/thumbs/service-three-thumb1.png"
+                            alt="UAV &amp; Drone Systems"
+                        /></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ==================== Service 06: Machine Learning ==================== -->
+                  <div
+                    class="service-three-single ms-auto"
+                    data-aos="fade-left"
+                    data-aos-duration="1500"
+                    data-aos-delay="250"
+                  >
+                    <div
+                      class="service-three-item d-flex justify-content-between align-items-center"
+                    >
+                      <div class="service-three-content d-flex tw-gap-14">
+                        <div>
+                          <span
+                            class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3"
+                            >06
+                            <img
+                              class="tw-transition-3"
+                              src="assets/images/icons/service-three-arrow.svg"
+                              alt="arrow"
+                          /></span>
+                        </div>
+                        <div>
+                          <div>
+                            <h2
+                              class="service-three-title tw-text-15 text-white tw-mb-4"
+                            >
+                              <a href="#services">Machine Learning</a>
+                            </h2>
+                          </div>
+                          <div class="portfolio-list portfolio-two-list">
+                            <ul class="d-flex tw-gap-205 flex-wrap">
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >XGBoost Regression</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Feature Engineering &amp; Scaling</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Hyperparameter Tuning</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Model Evaluation (MAE, RMSE, R&sup2;, MAPE, Clarke Grid)</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Data Validation &amp; Normalization</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="service-three-thumb">
+                        <a href="#services"
+                          ><img
+                            src="assets/images/thumbs/service-three-thumb2.png"
+                            alt="Machine Learning"
+                        /></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ==================== Service 07: Digital Signal Processing ==================== -->
+                  <div
+                    class="service-three-single"
+                    data-aos="fade-right"
+                    data-aos-duration="1500"
+                    data-aos-delay="200"
+                  >
+                    <div
+                      class="service-three-item d-flex justify-content-between align-items-center"
+                    >
+                      <div class="service-three-content d-flex tw-gap-14">
+                        <div>
+                          <span
+                            class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3"
+                            >07
+                            <img
+                              class="tw-transition-3"
+                              src="assets/images/icons/service-three-arrow.svg"
+                              alt="arrow"
+                          /></span>
+                        </div>
+                        <div>
+                          <div>
+                            <h2
+                              class="service-three-title tw-text-15 text-white tw-mb-4"
+                            >
+                              <a href="#services">Digital Signal Processing</a>
+                            </h2>
+                          </div>
+                          <div class="portfolio-list portfolio-two-list">
+                            <ul class="d-flex tw-gap-205 flex-wrap">
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Time/Frequency-Domain Filtering</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Noise Reduction</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Ensemble Averaging</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Sensor Signal Acquisition &amp; Feature Extraction</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Python-Based DSP Pipelines (NumPy, SciPy)</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Biomedical Signal Processing (PPG)</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="service-three-thumb">
+                        <a href="#services"
+                          ><img
+                            src="assets/images/thumbs/service-three-thumb3.png"
+                            alt="Digital Signal Processing"
+                        /></a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ==================== Service 08: Programming & Tools ==================== -->
+                  <div
+                    class="service-three-single ms-auto"
+                    data-aos="fade-left"
+                    data-aos-duration="1500"
+                    data-aos-delay="250"
+                  >
+                    <div
+                      class="service-three-item d-flex justify-content-between align-items-center"
+                    >
+                      <div class="service-three-content d-flex tw-gap-14">
+                        <div>
+                          <span
+                            class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3"
+                            >08
+                            <img
+                              class="tw-transition-3"
+                              src="assets/images/icons/service-three-arrow.svg"
+                              alt="arrow"
+                          /></span>
+                        </div>
+                        <div>
+                          <div>
+                            <h2
+                              class="service-three-title tw-text-15 text-white tw-mb-4"
+                            >
+                              <a href="#services">Programming &amp; Tools</a>
+                            </h2>
+                          </div>
+                          <div class="portfolio-list portfolio-two-list">
+                            <ul class="d-flex tw-gap-205 flex-wrap">
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >C, C++ (Embedded Firmware, OOP, STL)</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Python (NumPy, SciPy, Pandas)</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >MATLAB</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Git / GitHub</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >VS Code</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                  href="#services"
+                                  >Ubuntu Linux</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="service-three-thumb">
+                        <a href="#services"
+                          ><img
+                            src="assets/images/thumbs/service-three-thumb4.png"
+                            alt="Programming &amp; Tools"
                         /></a>
                       </div>
                     </div>
@@ -1937,7 +2461,7 @@
                         <h3 class="tw-text-xl text-white tw-mb-2">
                           Ahamed Raafiq
                         </h3>
-                        <p class="text-white">Electronics Engineer</p>
+                        <p class="text-white">Robotics Engineer</p>
                       </div>
                       <div class="footer-three-social">
                         <ul class="d-flex align-items-center tw-gap-1">

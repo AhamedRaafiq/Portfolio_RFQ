@@ -159,8 +159,7 @@
     gsap.registerPlugin(SplitText);
     txtheading.each(function (index, el) {
       el.split = new SplitText(el, {
-        type: "lines,words,chars",
-        linesClass: "split-line",
+        type: "words,chars",
       });
       if ($(el).hasClass("tw-itm-anim")) {
         gsap.set(el.split.chars, {
