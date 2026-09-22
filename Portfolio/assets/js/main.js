@@ -149,9 +149,11 @@
   ////////////////////////////////////////////////////
   // 07. AOS Js
   AOS.init({
+    disable: false, // Ensure animations run on mobile, tablet, and desktop
     once: false, // animation will happen every time you scroll
-    offset: 0, // start animation when element enters the viewport
+    offset: 20, // start animation early when element enters the viewport
     anchorPlacement: "top-bottom", // when the bottom of the element hits the bottom of the screen
+    duration: 800,
   });
 
   // 08. Backtotop Js

@@ -1,0 +1,4 @@
+# Temporary scratch scripts and logs
+scratch/
+.DS_Store
+Thumbs.db

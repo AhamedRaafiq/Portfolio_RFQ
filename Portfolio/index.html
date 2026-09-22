@@ -26,99 +26,7 @@
     <!-- aos -->
     <link rel="stylesheet" href="assets/css/aos.css" />
     <!-- Main css -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-
-    <!-- Universal Generalized Desktop Scaling Engine -->
-    <script>
-      (function () {
-        function getBaseDesktopWidth() {
-          if (window.screen && window.screen.width >= 1024) {
-            return window.screen.width;
-          }
-          return 1536;
-        }
-
-        function neutralizeCollapsingMediaQueries() {
-          for (let sheet of document.styleSheets) {
-            try {
-              if (!sheet.cssRules) continue;
-              for (let rule of sheet.cssRules) {
-                if (rule instanceof CSSMediaRule && rule.conditionText) {
-                  const cond = rule.conditionText;
-                  if (cond.includes('max-width')) {
-                    rule.media.mediaText = 'not all';
-                  } else if (
-                    cond.includes('min-width: 992px') ||
-                    cond.includes('min-width: 1200px') ||
-                    cond.includes('min-width: 1400px')
-                  ) {
-                    rule.media.mediaText = 'all';
-                  }
-                }
-              }
-            } catch (e) {}
-          }
-        }
-
-        function applyDesktopScale() {
-          const baseWidth = getBaseDesktopWidth();
-          const winWidth = window.innerWidth;
-          const scale = Math.min(1.0, winWidth / baseWidth);
-
-          document.documentElement.classList.add('desktop-scaled-mode');
-          if (document.body) {
-            document.body.classList.add('desktop-scaled-mode');
-            document.body.style.zoom = scale;
-            document.body.style.minWidth = baseWidth + 'px';
-          }
-
-          if (window.ScrollTrigger) {
-            window.ScrollTrigger.refresh();
-          }
-        }
-
-        // Configure viewport on mobile devices to render desktop canvas
-        const isMobile =
-          /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-            navigator.userAgent,
-          ) ||
-          (window.innerWidth <= 768 &&
-            ('ontouchstart' in window || navigator.maxTouchPoints > 0));
-        if (isMobile) {
-          const metaViewport = document.querySelector('meta[name="viewport"]');
-          if (metaViewport) {
-            metaViewport.setAttribute(
-              'content',
-              'width=1536, initial-scale=' +
-                window.screen.width / 1536 +
-                ', user-scalable=yes',
-            );
-          }
-        }
-
-        applyDesktopScale();
-
-        document.addEventListener('DOMContentLoaded', function () {
-          neutralizeCollapsingMediaQueries();
-          applyDesktopScale();
-        });
-
-        window.addEventListener('load', function () {
-          neutralizeCollapsingMediaQueries();
-          applyDesktopScale();
-        });
-
-        let resizeTimer;
-        window.addEventListener('resize', function () {
-          applyDesktopScale();
-          clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(function () {
-            neutralizeCollapsingMediaQueries();
-            applyDesktopScale();
-          }, 80);
-        });
-      })();
-    </script>
+    <link rel="stylesheet" href="assets/css/main.css?v=17897780" />
   </head>
 
   <body class="tw-magic-cursor">
@@ -194,9 +102,9 @@
             class="tw-offcanvas-2-left-wrap d-flex justify-content-between align-items-center"
           >
             <div class="twoffcanvas__logo">
-              <a class="logo-1" href="index.html"
-                ><img src="assets/images/logo/logo.png" alt="logo"
-              /></a>
+              <a class="logo-1 text-white fw-bold tw-text-lg" href="#home" style="letter-spacing: 0.05em;">
+                AHAMED RAAFIQ
+              </a>
             </div>
             <div class="tw-offcanvas-2-close d-md-none text-end">
               <button class="tw-offcanvas-2-close-btn tw-offcanvas-2-close-btn">
@@ -357,79 +265,98 @@
 
     <!-- ==================== Header Start Here ==================== -->
     <header
-      class="header header-two header-three tw-transition-all tw-z-99 position-relative"
+      class="header header-two header-three tw-transition-all tw-z-99 position-relative killer-portfolio-header"
     >
       <div class="container tw-container-1800-px">
         <nav
-          class="d-flex align-items-center justify-content-between position-relative"
+          class="d-flex align-items-center justify-content-between position-relative killer-header-nav"
         >
-          <!-- Logo Start -->
-          <div class="header-three-logo">
-            <a href="index.html" class="link">
-              <img
-                src="assets/images/logo/logo-secendary.png"
-                alt="Logo"
-              />
-            </a>
-          </div>
-          <!-- Logo End  -->
-
-          <!-- Menu Start  -->
-          <div class="header-three-social">
-            <ul class="d-flex tw-gap-205">
+          <!-- Left: Social Media Quick Links (LinkedIn, GitHub, X) -->
+          <div class="header-three-social header-left-social">
+            <ul class="d-flex align-items-center tw-gap-2 mb-0">
               <li>
                 <a
-                  class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
+                  class="social-pill-btn"
                   href="https://linkedin.com/in/ahamedraafiq"
                   target="_blank"
-                  ><i class="ph-bold ph-linkedin-logo"></i
-                ></a>
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
+                >
+                  <i class="ph-bold ph-linkedin-logo"></i>
+                </a>
               </li>
               <li>
                 <a
-                  class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
+                  class="social-pill-btn"
                   href="https://github.com/AhamedRaafiq"
                   target="_blank"
-                  ><i class="ph-bold ph-github-logo"></i
-                ></a>
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  title="GitHub"
+                >
+                  <i class="ph-bold ph-github-logo"></i>
+                </a>
               </li>
               <li>
                 <a
-                  class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
-                  href="#"
+                  class="social-pill-btn"
+                  href="https://x.com"
                   target="_blank"
-                  ><i class="ph-bold ph-x-logo"></i
-                ></a>
+                  rel="noopener noreferrer"
+                  aria-label="Twitter / X"
+                  title="Twitter / X"
+                >
+                  <i class="ph-bold ph-x-logo"></i>
+                </a>
               </li>
             </ul>
           </div>
-          <!-- Menu End  -->
 
-          <!-- Menu Start  -->
-          <div class="header-menu d-none">
-            <!-- Nav menu Start -->
-            <div class="main-menu">
-              <nav class="tw-main-menu-content">
-                <ul>
-                  <li><a class="color-active" href="#home">Home</a></li>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#services">Services</a></li>
-                  <li><a href="#portfolio">Portfolio</a></li>
-                  <li><a href="#certifications">Certifications</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                </ul>
-              </nav>
-            </div>
-            <!-- Nav menu End  -->
+          <!-- Middle: Modern Floating Pill Navigation Bar -->
+          <div class="header-nav-center d-none d-xl-flex">
+            <nav class="tw-main-menu-content killer-nav-pill-wrapper">
+              <ul class="killer-nav-list d-flex align-items-center mb-0">
+                <li class="killer-nav-item">
+                  <a class="killer-nav-link active" href="#home">Home</a>
+                </li>
+                <li class="killer-nav-item">
+                  <a class="killer-nav-link" href="#experience">Experience</a>
+                </li>
+                <li class="killer-nav-item">
+                  <a class="killer-nav-link" href="#services">Skills</a>
+                </li>
+                <li class="killer-nav-item">
+                  <a class="killer-nav-link" href="#portfolio">Projects</a>
+                </li>
+                <li class="killer-nav-item">
+                  <a class="killer-nav-link" href="#certifications">Certificates</a>
+                </li>
+                <li class="killer-nav-item">
+                  <a class="killer-nav-link" href="#contact">Contacts</a>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <!-- Menu End  -->
 
-          <!-- Header Right start -->
-          <div class="header-right d-flex align-items-center tw-gap-705">
-            <!-- Menu Button Start  -->
-            <div class="header-three-menu">
+          <!-- Right: Download CV & Mobile Hamburger Button -->
+          <div class="header-right d-flex align-items-center tw-gap-3">
+            <!-- Header Button Start  -->
+            <div class="header-three-button">
+              <a
+                class="tw-hover-btn bg-black text-white fw-bold d-inline-block hover-text-white text-uppercase header-cv-btn"
+                href="../CV/Raafiq_Resume_(R1).pdf"
+                download="Ahamed_Raafiq_Resume.pdf"
+              >
+                download cv
+                <span class="tw-hover-btn-circle-dot bg-main-two-600"></span>
+              </a>
+            </div>
+            <!-- Menu Button Start (Visible on Mobile / Tablet) -->
+            <div class="header-three-menu d-xl-none">
               <button
                 class="tw-offcanvas-open-btn tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center tw-transition-3 tw-rounded-md"
+                aria-label="Open Navigation Menu"
               >
                 <span
                   ><img
@@ -439,23 +366,7 @@
                 /></span>
               </button>
             </div>
-            <!-- Menu Button End  -->
-
-            <!-- Header Button Start  -->
-            <div class="header-three-button">
-              <a
-                class="tw-hover-btn bg-black text-white fw-bold tw-py-4 tw-px-10 d-inline-block hover-text-white text-uppercase tw-rounded-md"
-                href="../CV/Raafiq_Resume_(R1).pdf"
-                download="Ahamed_Raafiq_Resume.pdf"
-              >
-                download cv
-                <span class="tw-hover-btn-circle-dot bg-main-two-600"></span>
-              </a>
-            </div>
-            <!-- Header Button End  -->
           </div>
-
-          <!-- Header Right End  -->
         </nav>
       </div>
     </header>
@@ -824,6 +735,198 @@
             />
           </div>
         </section>
+        <!-- ==================== Experience Section Start ==================== -->
+        <section id="experience" class="experience-three-area bg-black position-relative z-1">
+          <div class="container tw-container-1800-px">
+            
+            <!-- Section Heading -->
+            <div class="row justify-content-center text-center">
+              <div class="col-xl-8 col-lg-10">
+                <div class="experience-section-header" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                  <div class="experience-tag-badge">
+                    <i class="ph ph-briefcase"></i> CAREER &amp; INDUSTRY EXPERIENCE
+                  </div>
+                  <h2 class="experience-section-title">
+                    Professional <span class="text-main-two-600">Experience</span>
+                  </h2>
+                  <p class="experience-section-desc">
+                    Hands-on engineering roles spanning end-to-end robotics hardware integration, flight autonomy pipelines, and digital signal processing architectures.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Experience Container -->
+            <div class="experience-timeline-container">
+
+              <!-- Item 1: Spaceborn-India -->
+              <div class="experience-item-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <!-- Timeline Node Marker -->
+                <div class="experience-timeline-node">
+                  <i class="ph ph-navigation-arrow"></i>
+                </div>
+
+                <!-- Experience Card -->
+                <div class="experience-card">
+                  <!-- Card Header -->
+                  <div class="experience-card-header">
+                    <div>
+                      <h3 class="experience-role-title">Robotics &amp; Simulation Intern</h3>
+                      <div class="experience-company-info">
+                        <span class="experience-company-name">
+                          <i class="ph ph-buildings"></i> Spaceborn-India
+                        </span>
+                        <span class="experience-location-badge">
+                          <i class="ph ph-globe"></i> Remote
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="experience-duration-pill">
+                        <i class="ph ph-calendar-blank"></i> Apr 2026 – Jul 2026
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons (Certificate) -->
+                  <div class="experience-action-row">
+                    <a
+                      class="experience-btn experience-cert-btn"
+                      href="assets/images/Certificate/Spaceborn%20Intern%20Certificate.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="View Spaceborn-India Internship Certificate (PDF)"
+                    >
+                      <span class="experience-btn-icon"><i class="ph-bold ph-certificate"></i></span>
+                      <span class="experience-btn-label">Internship Certificate</span>
+                      <i class="ph ph-arrow-up-right experience-btn-arrow"></i>
+                    </a>
+                  </div>
+
+                  <!-- Key Contributions / Responsibilities -->
+                  <ul class="experience-bullet-list">
+                    <li class="experience-bullet-item">
+                      Contributed to <strong>end-to-end robotics project execution</strong> — from drone frame selection and physical hardware assembly to full component integration and pre-deployment validation testing.
+                    </li>
+                    <li class="experience-bullet-item">
+                      Configured, tuned, and validated the <strong>PX4 flight-control stack</strong>, executing PID parameter calibration, virtual flight checks, and troubleshooting via <strong>QGroundControl</strong> in simulation environments.
+                    </li>
+                    <li class="experience-bullet-item">
+                      Engineered comprehensive robotics simulation and validation pipelines using <strong>ROS2, Gazebo, and RViz</strong> to benchmark dynamic response and control stability prior to physical flights.
+                    </li>
+                    <li class="experience-bullet-item">
+                      Integrated <strong>LiDAR sensors</strong> for real-time 3D point cloud generation and spatial perception as part of autonomous perception commissioning.
+                    </li>
+                    <li class="experience-bullet-item">
+                      Logged, analyzed, and documented real-time flight telemetry data for performance benchmarking and reporting, maintaining systematic version control workflows with <strong>Git &amp; GitHub</strong>.
+                    </li>
+                  </ul>
+
+                  <!-- Skills Learned & Applied -->
+                  <div class="experience-skills-section">
+                    <span class="experience-skills-label">
+                      <i class="ph ph-sparkle"></i> Skills Learned &amp; Applied:
+                    </span>
+                    <span class="experience-skill-badge">ROS2</span>
+                    <span class="experience-skill-badge">PX4 Autopilot</span>
+                    <span class="experience-skill-badge">Gazebo Simulation</span>
+                    <span class="experience-skill-badge">RViz 3D</span>
+                    <span class="experience-skill-badge">QGroundControl</span>
+                    <span class="experience-skill-badge">LiDAR 3D SLAM</span>
+                    <span class="experience-skill-badge">Drone Frame Assembly</span>
+                    <span class="experience-skill-badge">Git &amp; GitHub</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2: UET Taxila -->
+              <div class="experience-item-wrapper" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <!-- Timeline Node Marker -->
+                <div class="experience-timeline-node">
+                  <i class="ph ph-cpu"></i>
+                </div>
+
+                <!-- Experience Card -->
+                <div class="experience-card">
+                  <!-- Card Header -->
+                  <div class="experience-card-header">
+                    <div>
+                      <h3 class="experience-role-title">Digital Signal Processing Intern</h3>
+                      <div class="experience-company-info">
+                        <span class="experience-company-name">
+                          <i class="ph ph-buildings"></i> University of Engineering and Technology, Taxila
+                        </span>
+                        <span class="experience-location-badge">
+                          <i class="ph ph-map-pin"></i> On-site
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="experience-duration-pill">
+                        <i class="ph ph-calendar-blank"></i> Jun 2025 – Aug 2025
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Action Buttons (Certificate & LinkedIn) -->
+                  <div class="experience-action-row">
+                    <a
+                      class="experience-btn experience-cert-btn"
+                      href="assets/images/Certificate/SEED%20internship%20offer%20letter.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="View Internship Certificate (PDF)"
+                    >
+                      <span class="experience-btn-icon"><i class="ph-bold ph-certificate"></i></span>
+                      <span class="experience-btn-label">Internship Certificate</span>
+                      <i class="ph ph-arrow-up-right experience-btn-arrow"></i>
+                    </a>
+                    <a
+                      class="experience-btn experience-linkedin-btn"
+                      href="https://lnkd.in/p/d6SirAiG"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="View Internship Experience Post on LinkedIn"
+                    >
+                      <span class="experience-btn-icon"><i class="ph-bold ph-linkedin-logo"></i></span>
+                      <span class="experience-btn-label">View LinkedIn Post</span>
+                      <i class="ph ph-arrow-up-right experience-btn-arrow"></i>
+                    </a>
+                  </div>
+
+                  <!-- Key Contributions / Responsibilities -->
+                  <ul class="experience-bullet-list">
+                    <li class="experience-bullet-item">
+                      Engineered <strong>Python-based DSP pipelines</strong> for audio and sensor signal processing, digital filter design (IIR/FIR), Fourier transforms (FFT), and active noise reduction.
+                    </li>
+                    <li class="experience-bullet-item">
+                      Conducted time-domain and frequency-domain <strong>feature extraction</strong> and spectral analysis to support downstream machine learning and signal classification algorithms.
+                    </li>
+                    <li class="experience-bullet-item">
+                      Applied the scientific computing ecosystem (<strong>Python, NumPy, SciPy, Matplotlib</strong>) for real-time sensor data acquisition, matrix computation, and analytical visualization.
+                    </li>
+                  </ul>
+
+                  <!-- Skills Learned & Applied -->
+                  <div class="experience-skills-section">
+                    <span class="experience-skills-label">
+                      <i class="ph ph-sparkle"></i> Skills Learned &amp; Applied:
+                    </span>
+                    <span class="experience-skill-badge">Python DSP</span>
+                    <span class="experience-skill-badge">NumPy &amp; SciPy</span>
+                    <span class="experience-skill-badge">Digital Filter Design</span>
+                    <span class="experience-skill-badge">FFT Transforms</span>
+                    <span class="experience-skill-badge">Feature Extraction</span>
+                    <span class="experience-skill-badge">Noise Reduction</span>
+                    <span class="experience-skill-badge">Spectral Analysis</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <!-- ==================== Experience Section End ==================== -->
         <!-- ======================== Marquee section start =========================== -->
         <div class="marquee tw-pt-17 bg-black">
           <div
@@ -1342,7 +1445,7 @@
                       <div class="service-three-thumb">
                         <a href="#services"
                           ><img
-                            src="assets/images/thumbs/service-three-thumb1.png"
+                            src="assets/images/thumbs/service-three-thumb5.png"
                             alt="UAV &amp; Drone Systems"
                         /></a>
                       </div>
@@ -1422,7 +1525,7 @@
                       <div class="service-three-thumb">
                         <a href="#services"
                           ><img
-                            src="assets/images/thumbs/service-three-thumb2.png"
+                            src="assets/images/thumbs/service-three-thumb6.png"
                             alt="Machine Learning"
                         /></a>
                       </div>
@@ -1509,7 +1612,7 @@
                       <div class="service-three-thumb">
                         <a href="#services"
                           ><img
-                            src="assets/images/thumbs/service-three-thumb3.png"
+                            src="assets/images/thumbs/service-three-thumb7.png"
                             alt="Digital Signal Processing"
                         /></a>
                       </div>
@@ -1596,7 +1699,7 @@
                       <div class="service-three-thumb">
                         <a href="#services"
                           ><img
-                            src="assets/images/thumbs/service-three-thumb4.png"
+                            src="assets/images/thumbs/service-three-thumb8.png"
                             alt="Programming &amp; Tools"
                         /></a>
                       </div>
@@ -1609,450 +1712,870 @@
         </section>
         <section id="portfolio" class="portfolio-three-area py-120 position-relative z-1">
           <div class="portfolio-three-shape position-absolute top-0 z-n1">
-            <h3 class="portfolio-three-shape-title">works</h3>
+            <h3 class="portfolio-three-shape-title">PROJECTS</h3>
           </div>
           <div class="container tw-container-1800-px">
             <div class="row">
               <div class="col-xl-12">
                 <div
-                  class="portfolio-three-wrapper d-flex justify-content-between flex-wrap align-items-start position-relative z-1"
+                  class="portfolio-three-wrapper position-relative z-1"
                 >
-                  <div
-                    class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
-                  >
+                  <!-- Left Column: Project 02, Project 04, Project 06 (Offset to leave 'PROJECTS' watermark title visible) -->
+                  <div class="portfolio-col portfolio-col-left">
+                    
+                    <!-- ==================== Project 02 ==================== -->
                     <div
-                      class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2"
+                      class="portfolio-three-item tw-rounded-lg portfolio-wrapper"
+                      data-order="2"
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                      data-aos-delay="200"
                     >
-                      <div class="tw-mb-6">
-                        <div>
-                          <h2 class="tw-text-605 fw-medium tw-mb-4">
+                      <div class="portfolio-three-wrap tw-mb-5">
+                        <!-- Line 1: Title & Status Pill -->
+                        <div class="portfolio-title-wrap d-flex flex-wrap align-items-center tw-gap-3 tw-mb-3">
+                          <h2 class="portfolio-project-title fw-semibold mb-0">
                             <a
                               class="hover-text-main-two-600"
-                              href="#portfolio"
-                              >Project 01</a
+                              href="https://github.com/AhamedRaafiq"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              >2-Wheel Self-Balancing Robot</a
                             >
                           </h2>
+                          <span class="project-status-pill status-in-progress">
+                            <span class="status-pulse-dot"></span>
+                            <span class="status-text">Active Build • Coming Soon</span>
+                          </span>
                         </div>
-                        <div class="portfolio-three-list portfolio-list">
-                          <ul class="d-flex tw-gap-205 flex-wrap">
-                            <li>
-                              <a
-                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
-                                >COMING SOON</a
-                              >
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="portfolio-three-button">
+                        <!-- Line 2: Links Section -->
+                        <div class="portfolio-github-wrap d-flex flex-wrap align-items-center tw-gap-2 tw-mb-3">
                           <a
-                            class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                            href="#portfolio"
-                            ><i class="ph ph-arrow-up-right"></i
-                          ></a>
+                            class="portfolio-github-btn"
+                            href="https://github.com/AhamedRaafiq"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Follow build progress on GitHub"
+                          >
+                            <span class="portfolio-github-icon"><i class="ph-bold ph-github-logo"></i></span>
+                            <span class="portfolio-github-label">Follow Build on GitHub</span>
+                            <i class="ph ph-arrow-up-right portfolio-github-arrow"></i>
+                          </a>
                         </div>
-                      </div>
-                    </div>
-                    <div
-                      class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg"
-                      data-cursor="View"
-                    >
-                      <a
-                        class="d-block cursor-hide tw-rounded-lg"
-                        href="#portfolio"
-                        ><img
-                          class="w-100 tw-rounded-lg"
-                          src="assets/images/thumbs/portfolio-three-thumb1.jpg"
-                          alt="thumb"
-                      /></a>
-                    </div>
-                  </div>
-                  <div
-                    class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
-                  >
-                    <div
-                      class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2"
-                    >
-                      <div class="tw-mb-6">
-                        <div>
-                          <h2 class="tw-text-605 fw-medium tw-mb-4">
-                            <a
-                              class="hover-text-main-two-600"
-                              href="#portfolio"
-                              >Project 02</a
-                            >
-                          </h2>
-                        </div>
+                        <!-- Line 3: Keywords above image -->
                         <div class="portfolio-three-list portfolio-list">
-                          <ul class="d-flex tw-gap-205 flex-wrap">
+                          <ul class="d-flex flex-wrap">
                             <li>
                               <a
                                 class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
-                                >COMING SOON</a
+                                href="https://github.com/AhamedRaafiq"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >PID Control</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >MPU6050 IMU</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >ESP32-S3</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Kalman Filter</a
                               >
                             </li>
                           </ul>
                         </div>
                       </div>
-                      <div class="portfolio-three-button">
-                        <a
-                          class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                          href="#portfolio"
-                          ><i class="ph ph-arrow-up-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                    <div
-                      class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg"
-                      data-cursor="View"
-                    >
-                      <a
-                        class="d-block cursor-hide tw-rounded-lg"
-                        href="#portfolio"
-                        ><img
-                          class="w-100 tw-rounded-lg"
-                          src="assets/images/thumbs/portfolio-three-thumb2.jpg"
-                          alt="thumb"
-                      /></a>
-                    </div>
-                  </div>
-                  <div
-                    class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
-                  >
-                    <div
-                      class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2"
-                    >
-                      <div class="tw-mb-6">
-                        <div>
-                          <h2 class="tw-text-605 fw-medium tw-mb-4">
-                            <a
-                              class="hover-text-main-two-600"
-                              href="#portfolio"
-                              >Project 03</a
-                            >
-                          </h2>
-                        </div>
-                        <div class="portfolio-three-list portfolio-list">
-                          <ul class="d-flex tw-gap-205 flex-wrap">
-                            <li>
-                              <a
-                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
-                                >COMING SOON</a
-                              >
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="portfolio-three-button">
-                        <a
-                          class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                          href="#portfolio"
-                          ><i class="ph ph-arrow-up-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                    <div
-                      class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg"
-                      data-cursor="View"
-                    >
-                      <a
-                        class="d-block cursor-hide tw-rounded-lg"
-                        href="#portfolio"
-                        ><img
-                          class="w-100 tw-rounded-lg"
-                          src="assets/images/thumbs/portfolio-three-thumb3.jpg"
-                          alt="thumb"
-                      /></a>
-                    </div>
-                  </div>
-                  <div
-                    class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
-                  >
-                    <div
-                      class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2"
-                    >
-                      <div class="tw-mb-6">
-                        <div>
-                          <h2 class="tw-text-605 fw-medium tw-mb-4">
-                            <a
-                              class="hover-text-main-two-600"
-                              href="#portfolio"
-                              >Project 04</a
-                            >
-                          </h2>
-                        </div>
-                        <div class="portfolio-three-list portfolio-list">
-                          <ul class="d-flex tw-gap-205 flex-wrap">
-                            <li>
-                              <a
-                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
-                                >COMING SOON</a
-                              >
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="portfolio-three-button">
-                        <a
-                          class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                          href="#portfolio"
-                          ><i class="ph ph-arrow-up-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                    <div
-                      class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg"
-                      data-cursor="View"
-                    >
-                      <a
-                        class="d-block cursor-hide tw-rounded-lg"
-                        href="#portfolio"
-                        ><img
-                          class="w-100 tw-rounded-lg"
-                          src="assets/images/thumbs/portfolio-three-thumb4.jpg"
-                          alt="thumb"
-                      /></a>
-                    </div>
-                  </div>
-                  <div
-                    class="about-three-counter portfolio-three-counter d-inline-block position-absolute bottom-0 start-0"
-                  >
-                    <div class="tw-hover-btn-wrapper d-inline-block">
-                      <a
-                        class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden"
-                        href="#portfolio"
+                      <div
+                        class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg position-relative overflow-hidden"
+                        data-cursor="Building"
                       >
-                        <span class="d-flex flex-column justify-content-center">
-                          <span
-                            class="text-heading fw-bold tw-transition-3 tw-text-2xl fw-semibold"
-                            >More Projects <br />
-                            Coming Soon <i class="ph ph-arrow-up-right"></i
-                          ></span>
-                        </span>
-                        <i class="tw-btn-circle-dot bg-main-two-600"></i>
-                      </a>
+                        <a
+                          class="d-block cursor-hide tw-rounded-lg position-relative"
+                          href="https://github.com/AhamedRaafiq"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          ><img
+                            class="w-100 tw-rounded-lg"
+                            src="assets/images/thumbs/portfolio-three-thumb2.jpg?v=2"
+                            alt="2-Wheel Self-Balancing Robot — Build in Progress"
+                          />
+                          <!-- Glassmorphism Live Development Badge -->
+                          <div class="thumb-dev-overlay-badge">
+                            <span class="dev-badge-icon">🛠️</span>
+                            <span class="dev-badge-text">Prototyping & PID Tuning in Progress</span>
+                          </div>
+                        </a>
+                      </div>
                     </div>
+
+                    <!-- ==================== Project 04 ==================== -->
+                    <div
+                      class="portfolio-three-item tw-rounded-lg portfolio-wrapper"
+                      data-order="4"
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                      data-aos-delay="200"
+                    >
+                      <div class="portfolio-three-wrap tw-mb-5">
+                        <!-- Line 1: Title in initial separate line -->
+                        <div class="portfolio-title-wrap tw-mb-3">
+                          <h2 class="portfolio-project-title fw-semibold mb-0">
+                            <a
+                              class="hover-text-main-two-600"
+                              href="https://github.com/AhamedRaafiq/GlucoSense_FYP"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              >Glucosense : Non-Invasive Glucose Monitoring System using PPG Signal</a
+                            >
+                          </h2>
+                        </div>
+                        <!-- Line 2: Links Section (GitHub & LinkedIn) -->
+                        <div class="portfolio-github-wrap d-flex flex-wrap align-items-center tw-gap-2 tw-mb-3">
+                          <a
+                            class="portfolio-github-btn"
+                            href="https://github.com/AhamedRaafiq/GlucoSense_FYP"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Visit GitHub for more details"
+                          >
+                            <span class="portfolio-github-icon"><i class="ph-bold ph-github-logo"></i></span>
+                            <span class="portfolio-github-label">Visit GitHub for more details</span>
+                            <i class="ph ph-arrow-up-right portfolio-github-arrow"></i>
+                          </a>
+                          <a
+                            class="portfolio-linkedin-btn"
+                            href="https://lnkd.in/p/dYtbYR2f"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="View GlucoSense demo & post on LinkedIn"
+                          >
+                            <span class="portfolio-linkedin-icon"><i class="ph-bold ph-linkedin-logo"></i></span>
+                            <span class="portfolio-linkedin-label">View LinkedIn Post</span>
+                            <i class="ph ph-arrow-up-right portfolio-linkedin-arrow"></i>
+                          </a>
+                        </div>
+                        <!-- Line 3: Keywords above image -->
+                        <div class="portfolio-three-list portfolio-list">
+                          <ul class="d-flex flex-wrap">
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/GlucoSense_FYP"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >ESP32-S3</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/GlucoSense_FYP"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Biomedical DSP</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/GlucoSense_FYP"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >XGBoost ML</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/GlucoSense_FYP"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >FastAPI React</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div
+                        class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg"
+                        data-cursor="GitHub"
+                      >
+                        <a
+                          class="d-block cursor-hide tw-rounded-lg"
+                          href="https://github.com/AhamedRaafiq/GlucoSense_FYP"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          ><img
+                            class="w-100 tw-rounded-lg"
+                            src="assets/images/thumbs/portfolio-three-thumb4.jpg?v=2"
+                            alt="Glucosense : Non-Invasive Glucose Monitoring System using PPG Signal"
+                        /></a>
+                      </div>
+                    </div>
+
+                    <!-- ==================== Project 06 ==================== -->
+                    <div
+                      class="portfolio-three-item tw-rounded-lg portfolio-wrapper"
+                      data-order="6"
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                      data-aos-delay="200"
+                    >
+                      <div class="portfolio-three-wrap tw-mb-5">
+                        <!-- Line 1: Title in initial separate line -->
+                        <div class="portfolio-title-wrap tw-mb-3">
+                          <h2 class="portfolio-project-title fw-semibold mb-0">
+                            <a
+                              class="hover-text-main-two-600"
+                              href="#portfolio"
+                              >Autonomous Drone Simulation</a
+                            >
+                          </h2>
+                        </div>
+                        <!-- Line 3: Keywords above image -->
+                        <div class="portfolio-three-list portfolio-list">
+                          <ul class="d-flex flex-wrap">
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#portfolio"
+                                >PX4 Autopilot</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#portfolio"
+                                >ROS2 Gazebo</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#portfolio"
+                                >LiDAR SLAM</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#portfolio"
+                                >QGroundControl</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div
+                        class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg"
+                        data-cursor="View"
+                      >
+                        <a
+                          class="d-block cursor-hide tw-rounded-lg"
+                          href="#portfolio"
+                          ><img
+                            class="w-100 tw-rounded-lg"
+                            src="assets/images/thumbs/portfolio-three-thumb6.jpg?v=2"
+                            alt="Autonomous Drone Simulation"
+                        /></a>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- Right Column: Project 01, Project 03, Project 05 & More Projects CTA -->
+                  <div class="portfolio-col portfolio-col-right">
+                    
+                    <!-- ==================== Project 01 ==================== -->
+                    <div
+                      class="portfolio-three-item tw-rounded-lg portfolio-wrapper"
+                      data-order="1"
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                      data-aos-delay="150"
+                    >
+                      <div class="portfolio-three-wrap tw-mb-5">
+                        <!-- Line 1: Title in initial separate line -->
+                        <div class="portfolio-title-wrap tw-mb-3">
+                          <h2 class="portfolio-project-title fw-semibold mb-0">
+                            <a
+                              class="hover-text-main-two-600"
+                              href="#portfolio"
+                              >6-DOF Robotic Arm</a
+                            >
+                          </h2>
+                        </div>
+                        <!-- Line 3: Keywords above image -->
+                        <div class="portfolio-three-list portfolio-list">
+                          <ul class="d-flex flex-wrap">
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#portfolio"
+                                >ROS2 MoveIt</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#portfolio"
+                                >SolidWorks CAD</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#portfolio"
+                                >Servo Actuation</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#portfolio"
+                                >Arduino Firmware</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div
+                        class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg"
+                        data-cursor="View"
+                      >
+                        <a
+                          class="d-block cursor-hide tw-rounded-lg"
+                          href="#portfolio"
+                          ><img
+                            class="w-100 tw-rounded-lg"
+                            src="assets/images/thumbs/portfolio-three-thumb1.jpg?v=2"
+                            alt="6-DOF Robotic Arm"
+                        /></a>
+                      </div>
+                    </div>
+
+                    <!-- ==================== Project 03 ==================== -->
+                    <div
+                      class="portfolio-three-item tw-rounded-lg portfolio-wrapper"
+                      data-order="3"
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                      data-aos-delay="150"
+                      id="project-power-electronics"
+                    >
+                      <div class="portfolio-three-wrap tw-mb-5">
+                        <!-- Line 1: Title in initial separate line -->
+                        <div class="portfolio-title-wrap tw-mb-3">
+                          <h2 class="portfolio-project-title fw-semibold mb-0">
+                            <a
+                              id="converter-title-link"
+                              class="hover-text-main-two-600"
+                              href="https://github.com/AhamedRaafiq/Power_Supply_With_Boost_Converter"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              >Power Electronics PCB Design</a
+                            >
+                          </h2>
+                        </div>
+                        <!-- Mini-Switcher: Toggle between Boost & Buck -->
+                        <div class="converter-switcher-wrap tw-mb-3">
+                          <div class="converter-toggle-pills" role="tablist" aria-label="Converter Type Selector">
+                            <button
+                              type="button"
+                              class="converter-tab-btn active"
+                              data-converter="boost"
+                              role="tab"
+                              aria-selected="true"
+                            >
+                              <span class="converter-tab-icon">⚡</span>
+                              <span class="converter-tab-text">Boost Converter</span>
+                              <span class="converter-tab-badge">Step-Up</span>
+                            </button>
+                            <button
+                              type="button"
+                              class="converter-tab-btn"
+                              data-converter="buck"
+                              role="tab"
+                              aria-selected="false"
+                            >
+                              <span class="converter-tab-icon">🔋</span>
+                              <span class="converter-tab-text">Buck Converter</span>
+                              <span class="converter-tab-badge">Step-Down</span>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- Line 2: Links Section (GitHub & LinkedIn) -->
+                        <div class="portfolio-github-wrap d-flex flex-wrap align-items-center tw-gap-2 tw-mb-3">
+                          <a
+                            id="converter-github-btn"
+                            class="portfolio-github-btn"
+                            href="https://github.com/AhamedRaafiq/Power_Supply_With_Boost_Converter"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Visit GitHub: Boost Converter Repo"
+                          >
+                            <span class="portfolio-github-icon"><i class="ph-bold ph-github-logo"></i></span>
+                            <span id="converter-github-label" class="portfolio-github-label">Visit GitHub: Boost Converter Repo</span>
+                            <i class="ph ph-arrow-up-right portfolio-github-arrow"></i>
+                          </a>
+                          <a
+                            id="converter-linkedin-btn"
+                            class="portfolio-linkedin-btn"
+                            href="https://lnkd.in/p/dyk3uJRg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="View Boost Converter demo & post on LinkedIn"
+                          >
+                            <span class="portfolio-linkedin-icon"><i class="ph-bold ph-linkedin-logo"></i></span>
+                            <span id="converter-linkedin-label" class="portfolio-linkedin-label">View LinkedIn Post</span>
+                            <i class="ph ph-arrow-up-right portfolio-linkedin-arrow"></i>
+                          </a>
+                        </div>
+                        <!-- Line 3: Keywords above image -->
+                        <div class="portfolio-three-list portfolio-list">
+                          <ul id="converter-keyword-list" class="d-flex flex-wrap">
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/Power_Supply_With_Boost_Converter"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >UC3843AN PWM</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/Power_Supply_With_Boost_Converter"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >9V–16V to 28V</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/Power_Supply_With_Boost_Converter"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Step-Up DC-DC</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/Power_Supply_With_Boost_Converter"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Altium Designer</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/Power_Supply_With_Boost_Converter"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Power Integrity</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div
+                        class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg"
+                        data-cursor="GitHub"
+                      >
+                        <a
+                          id="converter-thumb-link"
+                          class="d-block cursor-hide tw-rounded-lg"
+                          href="https://github.com/AhamedRaafiq/Power_Supply_With_Boost_Converter"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          ><img
+                            id="converter-thumb-img"
+                            class="w-100 tw-rounded-lg"
+                            src="assets/images/thumbs/portfolio-three-thumb3-boost.jpg?v=boost"
+                            alt="UC3843AN DC-DC Boost Converter PCB Design"
+                        /></a>
+                      </div>
+                    </div>
+
+                    <!-- ==================== Project 05 ==================== -->
+                    <div
+                      class="portfolio-three-item tw-rounded-lg portfolio-wrapper"
+                      data-order="5"
+                      data-aos="fade-up"
+                      data-aos-duration="1000"
+                      data-aos-delay="150"
+                    >
+                      <div class="portfolio-three-wrap tw-mb-5">
+                        <!-- Line 1: Title in initial separate line -->
+                        <div class="portfolio-title-wrap tw-mb-3">
+                          <h2 class="portfolio-project-title fw-semibold mb-0">
+                            <a
+                              class="hover-text-main-two-600"
+                              href="https://github.com/AhamedRaafiq/imu_visualizer"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              >Real-Time 3D IMU Visualizer</a
+                            >
+                          </h2>
+                        </div>
+                        <!-- Line 2: Links Section (GitHub & LinkedIn) -->
+                        <div class="portfolio-github-wrap d-flex flex-wrap align-items-center tw-gap-2 tw-mb-3">
+                          <a
+                            class="portfolio-github-btn"
+                            href="https://github.com/AhamedRaafiq/imu_visualizer"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Visit GitHub for more details"
+                          >
+                            <span class="portfolio-github-icon"><i class="ph-bold ph-github-logo"></i></span>
+                            <span class="portfolio-github-label">Visit GitHub for more details</span>
+                            <i class="ph ph-arrow-up-right portfolio-github-arrow"></i>
+                          </a>
+                          <a
+                            class="portfolio-linkedin-btn"
+                            href="https://lnkd.in/p/dXEC-EDa"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="View IMU visualizer demo & post on LinkedIn"
+                          >
+                            <span class="portfolio-linkedin-icon"><i class="ph-bold ph-linkedin-logo"></i></span>
+                            <span class="portfolio-linkedin-label">View LinkedIn Post</span>
+                            <i class="ph ph-arrow-up-right portfolio-linkedin-arrow"></i>
+                          </a>
+                        </div>
+                        <!-- Line 3: Keywords above image -->
+                        <div class="portfolio-three-list portfolio-list">
+                          <ul class="d-flex flex-wrap">
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/imu_visualizer"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >ROS2 Jazzy</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/imu_visualizer"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >RViz2 3D</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/imu_visualizer"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Madgwick AHRS</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="https://github.com/AhamedRaafiq/imu_visualizer"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >ESP-IDF USB-CDC</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div
+                        class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg"
+                        data-cursor="GitHub"
+                      >
+                        <a
+                          class="d-block cursor-hide tw-rounded-lg"
+                          href="https://github.com/AhamedRaafiq/imu_visualizer"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          ><img
+                            class="w-100 tw-rounded-lg"
+                            src="assets/images/thumbs/portfolio-three-thumb5.jpg?v=2"
+                            alt="Real-Time 3D IMU Visualizer"
+                        /></a>
+                      </div>
+                    </div>
+
+                    <!-- ==================== More Projects Circle CTA ==================== -->
+                    <div
+                      class="portfolio-three-counter-wrapper text-center"
+                      data-aos="zoom-in"
+                      data-aos-duration="1000"
+                      data-aos-delay="200"
+                    >
+                      <div class="tw-hover-btn-wrapper d-inline-block">
+                        <a
+                          class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden"
+                          href="#portfolio"
+                        >
+                          <span class="d-flex flex-column justify-content-center">
+                            <span
+                              class="text-heading fw-bold tw-transition-3 tw-text-2xl fw-semibold"
+                              >More Projects <br />
+                              Coming Soon <i class="ph ph-arrow-up-right"></i
+                            ></span>
+                          </span>
+                          <i class="tw-btn-circle-dot bg-main-two-600"></i>
+                        </a>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        <!-- ==================== Certifications & Awards Section ==================== -->
         <section id="certifications" class="feature-three-area py-120 position-relative z-1">
+          <!-- Background Watermark Title -->
+          <div class="portfolio-three-shape position-absolute top-0 z-n1" style="opacity: 0.04; pointer-events: none;">
+            <h3 class="portfolio-three-shape-title" style="letter-spacing: 0.08em;">CERTIFICATES</h3>
+          </div>
+
           <div class="container tw-container-1800-px">
+            <!-- Section Header -->
+            <div class="row justify-content-center text-center tw-mb-16">
+              <div class="col-xl-8 col-lg-10">
+                <div class="experience-section-header" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                  <div class="experience-tag-badge">
+                    <i class="ph ph-certificate"></i> CREDENTIALS &amp; RECOGNITIONS
+                  </div>
+                  <h2 class="experience-section-title text-uppercase">
+                    <span class="text-white">CERTIFICATES</span>
+                  </h2>
+                  <p class="experience-section-desc">
+                    Verified technical certifications, specialized coursework, and academic project honors. Click any certificate to view the credential.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-xl-12">
-                <div class="feature-three-wrapper hover__widget">
-                  <div
-                    class="feature-three-single current hover__reveal-item"
+                <div class="feature-three-wrapper certificate-list-wrapper">
+                  
+                  <!-- Certificate 01: 2nd Place Best Final Year Project Award -->
+                  <a
+                    href="assets/images/Certificate/IMG_0835.JPG.jpeg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="feature-three-single certificate-row-link d-block"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                  >
+                    <div class="feature-three-item d-flex justify-content-between align-items-center">
+                      <div class="feature-three-left d-flex align-items-center">
+                        <div>
+                          <span class="feature-three-text tw-text-605 fw-semibold text-main-two-600 d-inline-block tw-w-20">01</span>
+                        </div>
+                        <div>
+                          <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-w-200-px d-inline-block">
+                            <i class="ph ph-trophy text-main-two-600 me-1"></i> Dept. Final Year Project
+                          </span>
+                        </div>
+                        <div>
+                          <span class="feature-three-text certificate-item-title tw-text-605 fw-semibold text-white tw-transition-3">
+                            2nd Place — Best Final Year Project Award (GlucoSense)
+                          </span>
+                        </div>
+                      </div>
+                      <div class="feature-three-right">
+                        <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-transition-3 d-inline-block">2026</span>
+                      </div>
+                    </div>
+                  </a>
+
+                  <!-- Certificate 02: Robotics and ROS2 -->
+                  <a
+                    href="assets/images/Certificate/Robotics_and_ROS2_Udemy.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="feature-three-single certificate-row-link d-block"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="150"
+                  >
+                    <div class="feature-three-item d-flex justify-content-between align-items-center">
+                      <div class="feature-three-left d-flex align-items-center">
+                        <div>
+                          <span class="feature-three-text tw-text-605 fw-semibold text-main-two-600 d-inline-block tw-w-20">02</span>
+                        </div>
+                        <div>
+                          <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-w-200-px d-inline-block">
+                            <i class="ph ph-certificate text-main-two-600 me-1"></i> Udemy
+                          </span>
+                        </div>
+                        <div>
+                          <span class="feature-three-text certificate-item-title tw-text-605 fw-semibold text-white tw-transition-3">
+                            Robotics and ROS2 — Learn by Doing! Manipulators
+                          </span>
+                        </div>
+                      </div>
+                      <div class="feature-three-right">
+                        <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-transition-3 d-inline-block">2024</span>
+                      </div>
+                    </div>
+                  </a>
+
+                  <!-- Certificate 03: PCB Design with Altium Designer -->
+                  <a
+                    href="assets/images/Certificate/PCB_Design_Altium_Udemy.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="feature-three-single certificate-row-link d-block"
                     data-aos="fade-up"
                     data-aos-duration="1000"
                     data-aos-delay="200"
                   >
-                    <div
-                      class="feature-three-item d-flex justify-content-between align-items-center"
-                    >
+                    <div class="feature-three-item d-flex justify-content-between align-items-center">
                       <div class="feature-three-left d-flex align-items-center">
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block tw-w-20"
-                            >01</span
-                          >
+                          <span class="feature-three-text tw-text-605 fw-semibold text-main-two-600 d-inline-block tw-w-20">03</span>
                         </div>
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block tw-w-160-px"
-                            >Udemy</span
-                          >
+                          <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-w-200-px d-inline-block">
+                            <i class="ph ph-certificate text-main-two-600 me-1"></i> Udemy
+                          </span>
                         </div>
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block"
-                            >Robotics and ROS2 — Learn by Doing! Manipulators</span
-                          >
+                          <span class="feature-three-text certificate-item-title tw-text-605 fw-semibold text-white tw-transition-3">
+                            PCB Design with Altium Designer
+                          </span>
                         </div>
                       </div>
-                      <div>
-                        <span
-                          class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block"
-                          >2026</span
-                        >
+                      <div class="feature-three-right">
+                        <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-transition-3 d-inline-block">2024</span>
                       </div>
                     </div>
-                    <div
-                      class="hover__reveal-bg bg-img"
-                      data-background-image="assets/images/thumbs/feature-three-thumb1.jpg"
-                    ></div>
-                  </div>
-                  <div
-                    class="feature-three-single hover__reveal-item"
+                  </a>
+
+                  <!-- Certificate 04: PCB Design in Cadence OrCAD/Allegro -->
+                  <a
+                    href="assets/images/Certificate/PCB_Design_Cadence_Udemy.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="feature-three-single certificate-row-link d-block"
                     data-aos="fade-up"
                     data-aos-duration="1000"
-                    data-aos-delay="200"
+                    data-aos-delay="250"
                   >
-                    <div
-                      class="feature-three-item d-flex justify-content-between align-items-center"
-                    >
+                    <div class="feature-three-item d-flex justify-content-between align-items-center">
                       <div class="feature-three-left d-flex align-items-center">
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block tw-w-20"
-                            >02</span
-                          >
+                          <span class="feature-three-text tw-text-605 fw-semibold text-main-two-600 d-inline-block tw-w-20">04</span>
                         </div>
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block tw-w-160-px"
-                            >DeepLearning.AI (Coursera)</span
-                          >
+                          <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-w-200-px d-inline-block">
+                            <i class="ph ph-certificate text-main-two-600 me-1"></i> Udemy
+                          </span>
                         </div>
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block"
-                            >Supervised Machine Learning: Regression and Classification</span
-                          >
+                          <span class="feature-three-text certificate-item-title tw-text-605 fw-semibold text-white tw-transition-3">
+                            PCB Design in Cadence OrCAD/Allegro: Basics to Expert Level
+                          </span>
                         </div>
                       </div>
-                      <div>
-                        <span
-                          class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block"
-                          >2025</span
-                        >
+                      <div class="feature-three-right">
+                        <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-transition-3 d-inline-block">2024</span>
                       </div>
                     </div>
-                    <div
-                      class="hover__reveal-bg bg-img"
-                      data-background-image="assets/images/thumbs/portfolio-two-thumb1.jpg"
-                    ></div>
-                  </div>
-                  <div
-                    class="feature-three-single hover__reveal-item"
+                  </a>
+
+                  <!-- Certificate 05: Supervised Machine Learning -->
+                  <a
+                    href="assets/images/Certificate/Supervised%20Machine%20Learning.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="feature-three-single certificate-row-link d-block"
                     data-aos="fade-up"
                     data-aos-duration="1000"
-                    data-aos-delay="200"
+                    data-aos-delay="300"
                   >
-                    <div
-                      class="feature-three-item d-flex justify-content-between align-items-center"
-                    >
+                    <div class="feature-three-item d-flex justify-content-between align-items-center">
                       <div class="feature-three-left d-flex align-items-center">
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block tw-w-20"
-                            >03</span
-                          >
+                          <span class="feature-three-text tw-text-605 fw-semibold text-main-two-600 d-inline-block tw-w-20">05</span>
                         </div>
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block tw-w-160-px"
-                            >Udemy</span
-                          >
+                          <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-w-200-px d-inline-block">
+                            <i class="ph ph-graduation-cap text-main-two-600 me-1"></i> DeepLearning.AI (Coursera)
+                          </span>
                         </div>
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block"
-                            >PCB Design in Cadence OrCAD/Allegro</span
-                          >
+                          <span class="feature-three-text certificate-item-title tw-text-605 fw-semibold text-white tw-transition-3">
+                            Supervised Machine Learning: Regression and Classification
+                          </span>
                         </div>
                       </div>
-                      <div>
-                        <span
-                          class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block"
-                          >2025</span
-                        >
+                      <div class="feature-three-right">
+                        <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-transition-3 d-inline-block">2025</span>
                       </div>
                     </div>
-                    <div
-                      class="hover__reveal-bg bg-img"
-                      data-background-image="assets/images/thumbs/portfolio-two-thumb2.jpg"
-                    ></div>
-                  </div>
-                  <div
-                    class="feature-three-single hover__reveal-item"
+                  </a>
+
+                  <!-- Certificate 06: Programming for Everybody -->
+                  <a
+                    href="assets/images/Certificate/Coursera%20TPCUZQLF4QJX(Python%201st%20course).pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="feature-three-single certificate-row-link d-block"
                     data-aos="fade-up"
                     data-aos-duration="1000"
-                    data-aos-delay="200"
+                    data-aos-delay="350"
                   >
-                    <div
-                      class="feature-three-item d-flex justify-content-between align-items-center"
-                    >
+                    <div class="feature-three-item d-flex justify-content-between align-items-center">
                       <div class="feature-three-left d-flex align-items-center">
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block tw-w-20"
-                            >04</span
-                          >
+                          <span class="feature-three-text tw-text-605 fw-semibold text-main-two-600 d-inline-block tw-w-20">06</span>
                         </div>
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block tw-w-160-px"
-                            >Udemy</span
-                          >
+                          <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-w-200-px d-inline-block">
+                            <i class="ph ph-code text-main-two-600 me-1"></i> Univ. of Michigan (Coursera)
+                          </span>
                         </div>
                         <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block"
-                            >PCB Design with Altium Designer</span
-                          >
+                          <span class="feature-three-text certificate-item-title tw-text-605 fw-semibold text-white tw-transition-3">
+                            Programming for Everybody — Getting Started with Python
+                          </span>
                         </div>
                       </div>
-                      <div>
-                        <span
-                          class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block"
-                          >2025</span
-                        >
+                      <div class="feature-three-right">
+                        <span class="feature-three-text tw-text-605 fw-medium text-white-50 tw-transition-3 d-inline-block">2023</span>
                       </div>
                     </div>
-                    <div
-                      class="hover__reveal-bg bg-img"
-                      data-background-image="assets/images/thumbs/portfolio-two-thumb3.jpg"
-                    ></div>
-                  </div>
-                  <div
-                    class="feature-three-single hover__reveal-item"
-                    data-aos="fade-up"
-                    data-aos-duration="1000"
-                    data-aos-delay="200"
-                  >
-                    <div
-                      class="feature-three-item d-flex justify-content-between align-items-center"
-                    >
-                      <div class="feature-three-left d-flex align-items-center">
-                        <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block tw-w-20"
-                            >05</span
-                          >
-                        </div>
-                        <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block tw-w-160-px"
-                            >Univ. of Michigan (Coursera)</span
-                          >
-                        </div>
-                        <div>
-                          <span
-                            class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block"
-                            >Programming for Everybody — Getting Started with Python</span
-                          >
-                        </div>
-                      </div>
-                      <div>
-                        <span
-                          class="feature-three-text tw-text-605 fw-medium text-white tw-transition-3 d-inline-block"
-                          >2023</span
-                        >
-                      </div>
-                    </div>
-                    <div
-                      class="hover__reveal-bg bg-img"
-                      data-background-image="assets/images/thumbs/portfolio-two-thumb4.jpg"
-                    ></div>
-                  </div>
+                  </a>
+
                 </div>
               </div>
             </div>
@@ -2237,176 +2760,234 @@
             </div>
           </div>
         </section>
-        <section class="brand-three-area brand-two-area pb-120 @@brandipClass">
+        <!-- ==================== Tech Stack & Toolchain Section ==================== -->
+        <section id="skills" class="brand-three-area brand-two-area pb-120 position-relative z-1">
+          <!-- Background Watermark Title (Strictly Centered on Desktop) -->
+          <div class="portfolio-three-shape position-absolute top-0 start-0 end-0 z-n1 w-100 text-center" style="opacity: 0.04; pointer-events: none;">
+            <h3 class="portfolio-three-shape-title text-center" style="letter-spacing: 0.08em;">TECH STACK</h3>
+          </div>
+
           <div class="container tw-container-1800-px">
-            <div class="row">
-              <div class="col-xl-12">
-                <div class="text-center tw-mb-15">
-                  <h2 class="brand-three-title tw-text-xl tw-char-animation">
-                    Tools & Technologies
+            <!-- Section Header (Strictly Centered on Desktop) -->
+            <div class="row justify-content-center text-center tw-mb-16 w-100 mx-auto">
+              <div class="col-12 text-center d-flex flex-column align-items-center mx-auto">
+                <div class="experience-section-header text-center d-flex flex-column align-items-center w-100 mx-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                  <div class="experience-tag-badge mx-auto text-center mb-3">
+                    <i class="ph ph-cpu"></i> TOOLS &amp; TECHNOLOGIES
+                  </div>
+                  <h2 class="experience-section-title text-uppercase text-center w-100 mb-2">
+                    <span class="text-main-two-600">TECH STACK &amp; TOOLCHAIN</span>
                   </h2>
+                  <p class="experience-section-desc text-center mx-auto" style="max-width: 620px;">
+                    Core hardware platforms, simulation engines, embedded ecosystems, and computing stacks powering my engineering workflows.
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="row gx-2">
-              <div class="col-xl-2 col-lg-6 col-md-6">
-                <div
-                  class="brand-item brand-three-item position-relative z-1 tw-mb-1"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="200"
-                >
-                  <span class="brand-active-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-two-thumb1.png"
-                      alt="thumb"
-                  /></span>
-                  <span class="brand-hover-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-two-thumb11.png"
-                      alt="thumb"
-                  /></span>
-                </div>
+
+            <!-- Tech Stack 20-Item Grid (Authentic High-Res Logos & Initial Stage Hover Animation) -->
+            <div class="brand-three-grid">
+              
+              <!-- 01: ROS / ROS2 -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" title="ROS / ROS2">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/ros_color.png" alt="ROS / ROS2" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/ros_color.png" alt="ROS / ROS2" />
+                </span>
               </div>
-              <div class="col-xl-2 col-lg-6 col-md-6">
-                <div
-                  class="brand-item brand-three-item position-relative z-1 tw-mb-1"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="300"
-                >
-                  <span class="brand-active-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-two-thumb2.png"
-                      alt="thumb"
-                  /></span>
-                  <span class="brand-hover-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-two-thumb22.png"
-                      alt="thumb"
-                  /></span>
-                </div>
+
+              <!-- 02: Gazebo Sim -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="130" title="Gazebo Sim">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/gazebo_color.png" alt="Gazebo Sim" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/gazebo_color.png" alt="Gazebo Sim" />
+                </span>
               </div>
-              <div class="col-xl-2 col-lg-6 col-md-6"></div>
-              <div class="col-xl-2 col-lg-6 col-md-6">
-                <div
-                  class="brand-item brand-three-item position-relative z-1 tw-mb-1"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="400"
-                >
-                  <span class="brand-active-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-thumb55.png"
-                      alt="thumb"
-                  /></span>
-                  <span class="brand-hover-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-thumb5.png"
-                      alt="thumb"
-                  /></span>
-                </div>
+
+              <!-- 03: PX4 Autopilot -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="160" title="PX4 Autopilot">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/px4_color.png" alt="PX4 Autopilot" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/px4_color.png" alt="PX4 Autopilot" />
+                </span>
               </div>
-              <div class="col-xl-2 col-lg-6 col-md-6"></div>
-              <div class="col-xl-2 col-lg-6 col-md-6">
-                <div
-                  class="brand-item brand-three-item position-relative z-1 tw-mb-1"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="500"
-                >
-                  <span class="brand-active-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-two-thumb4.png"
-                      alt="thumb"
-                  /></span>
-                  <span class="brand-hover-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-two-thumb44.png"
-                      alt="thumb"
-                  /></span>
-                </div>
+
+              <!-- 04: QGroundControl -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="190" title="QGroundControl">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/qgroundcontrol_color.png" alt="QGroundControl" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/qgroundcontrol_color.png" alt="QGroundControl" />
+                </span>
               </div>
-            </div>
-            <div class="row gx-2">
-              <div class="col-xl-2 col-lg-6 col-md-6"></div>
-              <div class="col-xl-2 col-lg-6 col-md-6">
-                <div
-                  class="brand-item brand-three-item position-relative z-1 tw-mb-1"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="200"
-                >
-                  <span class="brand-active-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-thumb33.png"
-                      alt="thumb"
-                  /></span>
-                  <span class="brand-hover-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-thumb3.png"
-                      alt="thumb"
-                  /></span>
-                </div>
+
+              <!-- 05: Altium Designer -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="220" title="Altium Designer">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/altium_color.png" alt="Altium Designer" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/altium_color.png" alt="Altium Designer" />
+                </span>
               </div>
-              <div class="col-xl-2 col-lg-6 col-md-6">
-                <div
-                  class="brand-item brand-three-item position-relative z-1 tw-mb-1"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="300"
-                >
-                  <span class="brand-active-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-thumb11.png"
-                      alt="thumb"
-                  /></span>
-                  <span class="brand-hover-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-thumb1.png"
-                      alt="thumb"
-                  /></span>
-                </div>
+
+              <!-- 06: Cadence OrCAD -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250" title="Cadence OrCAD">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/cadence_color.png" alt="Cadence OrCAD" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/cadence_color.png" alt="Cadence OrCAD" />
+                </span>
               </div>
-              <div class="col-xl-2 col-lg-6 col-md-6"></div>
-              <div class="col-xl-2 col-lg-6 col-md-6">
-                <div
-                  class="brand-item brand-three-item position-relative z-1 tw-mb-1"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="400"
-                >
-                  <span class="brand-active-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-thumb66.png"
-                      alt="thumb"
-                  /></span>
-                  <span class="brand-hover-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-thumb6.png"
-                      alt="thumb"
-                  /></span>
-                </div>
+
+              <!-- 07: ESP32 / Espressif -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="280" title="ESP32 / Espressif">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/espressif_color.png" alt="ESP32 / Espressif" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/espressif_color.png" alt="ESP32 / Espressif" />
+                </span>
               </div>
-              <div class="col-xl-2 col-lg-6 col-md-6">
-                <div
-                  class="brand-item brand-three-item position-relative z-1 tw-mb-1"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="500"
-                >
-                  <span class="brand-active-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-thumb22.png"
-                      alt="thumb"
-                  /></span>
-                  <span class="brand-hover-media"
-                    ><img
-                      src="assets/images/thumbs/marquee-thumb2.png"
-                      alt="thumb"
-                  /></span>
-                </div>
+
+              <!-- 08: Arduino -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="310" title="Arduino">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/arduino_color.png" alt="Arduino" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/arduino_color.png" alt="Arduino" />
+                </span>
               </div>
+
+              <!-- 09: Raspberry Pi -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="340" title="Raspberry Pi">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/raspberrypi_color.png" alt="Raspberry Pi" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/raspberrypi_color.png" alt="Raspberry Pi" />
+                </span>
+              </div>
+
+              <!-- 10: MATLAB & Simulink -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="370" title="MATLAB &amp; Simulink">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/matlab_color.png" alt="MATLAB &amp; Simulink" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/matlab_color.png" alt="MATLAB &amp; Simulink" />
+                </span>
+              </div>
+
+              <!-- 11: Python -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" title="Python">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/python_color.png" alt="Python" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/python_color.png" alt="Python" />
+                </span>
+              </div>
+
+              <!-- 12: C Language -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="430" title="C Language">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/c_color.png" alt="C Language" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/c_color.png" alt="C Language" />
+                </span>
+              </div>
+
+              <!-- 13: C++ -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="460" title="C++">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/cpp_color.png" alt="C++" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/cpp_color.png" alt="C++" />
+                </span>
+              </div>
+
+              <!-- 14: NumPy -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="490" title="NumPy">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/numpy_color.png" alt="NumPy" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/numpy_color.png" alt="NumPy" />
+                </span>
+              </div>
+
+              <!-- 15: SciPy -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="520" title="SciPy">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/scipy_color.png" alt="SciPy" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/scipy_color.png" alt="SciPy" />
+                </span>
+              </div>
+
+              <!-- 16: TensorFlow -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="550" title="TensorFlow">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/tensorflow_color.png?v=2" alt="TensorFlow" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/tensorflow_color.png?v=2" alt="TensorFlow" />
+                </span>
+              </div>
+
+              <!-- 17: Ubuntu Linux -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="580" title="Ubuntu Linux">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/ubuntu_color.png" alt="Ubuntu Linux" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/ubuntu_color.png" alt="Ubuntu Linux" />
+                </span>
+              </div>
+
+              <!-- 18: VS Code -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="610" title="VS Code">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/vscode_color.png" alt="VS Code" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/vscode_color.png" alt="VS Code" />
+                </span>
+              </div>
+
+              <!-- 19: GitHub -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="640" title="GitHub">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/github_color.png" alt="GitHub" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/github_color.png" alt="GitHub" />
+                </span>
+              </div>
+
+              <!-- 20: Antigravity AI -->
+              <div class="brand-item brand-three-item position-relative z-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="670" title="Antigravity AI">
+                <span class="brand-active-media">
+                  <img src="assets/images/tools/antigravity_color.png" alt="Antigravity AI" />
+                </span>
+                <span class="brand-hover-media">
+                  <img src="assets/images/tools/antigravity_color.png" alt="Antigravity AI" />
+                </span>
+              </div>
+
             </div>
           </div>
         </section>
@@ -2484,9 +3065,10 @@
                           <li>
                             <a
                               class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
-                              href="#"
+                              href="https://wa.me/94766994358"
                               target="_blank"
-                              ><i class="ph ph-x-logo"></i>
+                              title="Chat on WhatsApp"
+                              ><i class="ph ph-whatsapp-logo"></i>
                             </a>
                           </li>
                         </ul>
@@ -2496,48 +3078,77 @@
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6">
-                <div
-                  class="footer-three-form"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="300"
-                >
-                  <form action="#">
+                <div class="footer-three-form position-relative z-1">
+                  <div class="footer-form-header tw-mb-6">
+                    <span class="d-inline-flex align-items-center tw-gap-2 tw-text-xs fw-semibold text-main-two-600 text-uppercase letter-spacing-1 mb-2">
+                      <i class="ph ph-envelope-simple tw-text-base"></i> GET IN TOUCH
+                    </span>
+                    <h3 class="tw-text-2xl text-white fw-bold tw-mb-2">
+                      Send a <span class="text-main-two-600">Message</span>
+                    </h3>
+                    <p class="text-neutral-400 tw-text-sm" style="color: #9ca3af; line-height: 1.5;">
+                      Have an engineering challenge, robotics project, or inquiry? Drop me a message below.
+                    </p>
+                  </div>
+                  <form id="portfolio-contact-form" action="mailto:raafiqofficial@gmail.com" method="POST" enctype="text/plain">
                     <div class="row">
                       <div class="col-xl-12">
-                        <div class="position-relative tw-mb-7">
+                        <div class="position-relative tw-mb-5">
+                          <label for="contact-name" class="form-label text-white tw-text-sm fw-medium mb-2 d-block">
+                            Your Name <span class="text-main-two-600">*</span>
+                          </label>
                           <input
+                            id="contact-name"
+                            name="name"
                             type="text"
-                            class="form-control bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 tw-h-18 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
-                            placeholder="First Name"
+                            class="form-control text-white"
+                            placeholder="e.g. John Doe"
+                            required
                           />
                         </div>
                       </div>
                       <div class="col-xl-12">
-                        <div class="position-relative tw-mb-7">
+                        <div class="position-relative tw-mb-5">
+                          <label for="contact-email" class="form-label text-white tw-text-sm fw-medium mb-2 d-block">
+                            Email Address <span class="text-main-two-600">*</span>
+                          </label>
                           <input
+                            id="contact-email"
+                            name="email"
                             type="email"
-                            class="form-control bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 tw-h-18 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
-                            placeholder="Email Address"
+                            class="form-control text-white"
+                            placeholder="e.g. john@example.com"
+                            required
                           />
                         </div>
                       </div>
                       <div class="col-xl-12">
-                        <div class="position-relative tw-mb-7">
+                        <div class="position-relative tw-mb-6">
+                          <label for="contact-message" class="form-label text-white tw-text-sm fw-medium mb-2 d-block">
+                            Message <span class="text-main-two-600">*</span>
+                          </label>
                           <textarea
-                            class="form-control bg-transparent shadow-none tw-h-196-px tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
-                            placeholder="Message"
+                            id="contact-message"
+                            name="message"
+                            class="form-control text-white"
+                            placeholder="Tell me about your project, idea, or inquiry..."
+                            rows="5"
+                            required
                           ></textarea>
                         </div>
                       </div>
                       <div class="col-xl-12">
                         <div class="contact-button">
                           <button
-                            class="tw-hover-btn bg-main-600 text-heading tw-text-xl fw-bold tw-py-4 tw-px-10 d-inline-flex justify-content-center w-100 hover-text-heading hover-bg-white tw-transition-3 tw-rounded-lg"
+                            type="submit"
+                            id="contact-submit-btn"
+                            class="tw-hover-btn bg-main-600 text-white tw-text-base fw-bold tw-py-4 tw-px-10 d-inline-flex align-items-center justify-content-center w-100 hover-text-white tw-transition-3 tw-rounded-lg gap-2"
                           >
-                            submit message
+                            <span>SEND MESSAGE</span>
+                            <i class="ph ph-paper-plane-tilt tw-text-lg"></i>
                           </button>
                         </div>
+                        <div id="contact-form-status" class="mt-3 text-center" style="display: none;"></div>
                       </div>
                     </div>
                   </form>
@@ -2563,28 +3174,28 @@
                       <ul class="d-flex tw-gap-2 flex-wrap">
                         <li>
                           <a class="tw-text-lg text-white" href="#home"
-                            >Home,</a
+                            >Home</a
                           >
                         </li>
                         <li>
                           <a class="tw-text-lg text-white" href="#about"
-                            >About Me,
-                          </a>
+                            >About Me</a
+                          >
                         </li>
                         <li>
                           <a class="tw-text-lg text-white" href="#portfolio"
-                            >Portfolio,
-                          </a>
+                            >Portfolio</a
+                          >
                         </li>
                         <li>
                           <a class="tw-text-lg text-white" href="#services"
-                            >Services,
-                          </a>
+                            >Services</a
+                          >
                         </li>
                         <li>
                           <a class="tw-text-lg text-white" href="#contact"
-                            >Contact
-                          </a>
+                            >Contact</a
+                          >
                         </li>
                       </ul>
                     </div>
@@ -2673,10 +3284,211 @@
     <!-- custom GSAP -->
     <script src="assets/js/slider-active.js"></script>
     <!-- custom GSAP -->
-    <script src="assets/js/custom-gsap.js"></script>
+    <script src="assets/js/custom-gsap.js?v=17897690"></script>
     <!-- main js -->
     <script src="assets/js/main.js"></script>
     <!-- cursor js -->
     <script src="assets/js/tw-cursor.js"></script>
+    <!-- Project 03 Interactive Power Converter Switcher -->
+    <script>
+      (function () {
+        const converterData = {
+          boost: {
+            titleLink: "https://github.com/AhamedRaafiq/Power_Supply_With_Boost_Converter",
+            githubUrl: "https://github.com/AhamedRaafiq/Power_Supply_With_Boost_Converter",
+            githubLabel: "Visit GitHub: Boost Converter Repo",
+            linkedinUrl: "https://lnkd.in/p/dyk3uJRg",
+            linkedinLabel: "View LinkedIn Post",
+            imgSrc: "assets/images/thumbs/portfolio-three-thumb3-boost.jpg?v=boost",
+            imgAlt: "UC3843AN DC-DC Boost Converter PCB Design",
+            keywords: [
+              "UC3843AN PWM",
+              "9V–16V to 28V",
+              "Step-Up DC-DC",
+              "Altium Designer",
+              "Power Integrity"
+            ]
+          },
+          buck: {
+            titleLink: "https://github.com/AhamedRaafiq/Power_Supply_With_Buck_Converter",
+            githubUrl: "https://github.com/AhamedRaafiq/Power_Supply_With_Buck_Converter",
+            githubLabel: "Visit GitHub: Buck Converter Repo",
+            linkedinUrl: "https://lnkd.in/p/dBTvMDjw",
+            linkedinLabel: "View LinkedIn Post",
+            imgSrc: "assets/images/thumbs/portfolio-three-thumb3-buck.jpg?v=buck",
+            imgAlt: "LM2596 DC-DC Buck Converter Power Supply PCB Design",
+            keywords: [
+              "LM2596-ADJ",
+              "3.3V–20V / 3A",
+              "AC-DC Step-Down",
+              "Altium Designer",
+              "NI Multisim"
+            ]
+          }
+        };
+
+        function setupConverterSwitcher() {
+          const tabBtns = document.querySelectorAll('.converter-tab-btn');
+          const titleLink = document.getElementById('converter-title-link');
+          const githubBtn = document.getElementById('converter-github-btn');
+          const githubLabel = document.getElementById('converter-github-label');
+          const linkedinBtn = document.getElementById('converter-linkedin-btn');
+          const linkedinLabel = document.getElementById('converter-linkedin-label');
+          const thumbLink = document.getElementById('converter-thumb-link');
+          const thumbImg = document.getElementById('converter-thumb-img');
+          const keywordList = document.getElementById('converter-keyword-list');
+
+          if (!tabBtns.length || !githubBtn || !thumbImg) return;
+
+          tabBtns.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+              e.preventDefault();
+              const type = this.getAttribute('data-converter');
+              if (this.classList.contains('active') || !converterData[type]) return;
+
+              // Update active tab buttons
+              tabBtns.forEach(b => {
+                const isActive = b === this;
+                b.classList.toggle('active', isActive);
+                b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+              });
+
+              const data = converterData[type];
+
+              // Smooth transition: fade out image and keywords
+              thumbImg.classList.add('switching');
+              if (keywordList) keywordList.classList.add('switching');
+
+              setTimeout(() => {
+                // Update links & labels
+                if (titleLink) titleLink.href = data.titleLink;
+                githubBtn.href = data.githubUrl;
+                githubBtn.title = data.githubLabel;
+                if (githubLabel) githubLabel.textContent = data.githubLabel;
+                if (linkedinBtn) {
+                  linkedinBtn.href = data.linkedinUrl;
+                  linkedinBtn.title = `View ${type === 'boost' ? 'Boost' : 'Buck'} Converter demo & post on LinkedIn`;
+                }
+                if (linkedinLabel) linkedinLabel.textContent = data.linkedinLabel;
+                if (thumbLink) thumbLink.href = data.githubUrl;
+
+                // Update thumbnail image
+                thumbImg.src = data.imgSrc;
+                thumbImg.alt = data.imgAlt;
+
+                // Update keywords
+                if (keywordList) {
+                  keywordList.innerHTML = data.keywords
+                    .map(
+                      kw =>
+                        `<li><a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3" href="${data.githubUrl}" target="_blank" rel="noopener noreferrer">${kw}</a></li>`
+                    )
+                    .join('');
+                }
+
+                // Smooth transition: fade in
+                thumbImg.classList.remove('switching');
+                if (keywordList) keywordList.classList.remove('switching');
+              }, 180);
+            });
+          });
+        }
+
+        // Contact Form Submission Handler
+        function setupContactForm() {
+          const form = document.getElementById('portfolio-contact-form');
+          if (!form) return;
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = (document.getElementById('contact-name')?.value || '').trim();
+            const email = (document.getElementById('contact-email')?.value || '').trim();
+            const message = (document.getElementById('contact-message')?.value || '').trim();
+
+            if (!name || !email || !message) return;
+
+            const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            const mailtoUri = `mailto:raafiqofficial@gmail.com?subject=${subject}&body=${body}`;
+
+            const status = document.getElementById('contact-form-status');
+            if (status) {
+              status.style.display = 'block';
+              status.innerHTML = '<span style="color: #10b981; font-weight: 600; font-size: 14px;"><i class="ph ph-check-circle me-1"></i> Opening your email client to send your message to raafiqofficial@gmail.com...</span>';
+            }
+
+            window.location.href = mailtoUri;
+          });
+        }
+
+        // Align profile picture bottom edge with CTA buttons horizontal baseline
+        function setupHeroBaselineAlign() {
+          const cta = document.querySelector('.hero-v2__cta-row');
+          const img = document.querySelector('.hero-v2__portrait-img');
+          const box = document.querySelector('.hero-v2__portrait-box');
+          const leftCol = document.querySelector('.hero-v2__left-col');
+          if (!cta || !img || !box) return;
+
+          function alignBaseline() {
+            if (window.innerWidth < 992) {
+              box.style.transform = '';
+              return;
+            }
+
+            box.style.transform = 'none';
+
+            const btns = cta.querySelectorAll('.hero-v2__btn');
+            let ctaBottom = cta.getBoundingClientRect().bottom;
+            if (btns.length > 0) {
+              ctaBottom = Math.max(...Array.from(btns).map(b => b.getBoundingClientRect().bottom));
+            }
+
+            const imgBottom = img.getBoundingClientRect().bottom;
+            const diff = imgBottom - ctaBottom;
+
+            // Raised another 0.5cm to align flush on the exact horizontal baseline with CTA buttons
+            box.style.transform = `translateY(${-diff}px)`;
+          }
+
+          alignBaseline();
+
+          if (img.complete) {
+            alignBaseline();
+          } else {
+            img.addEventListener('load', alignBaseline);
+          }
+
+          if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(alignBaseline);
+          }
+
+          window.addEventListener('resize', alignBaseline);
+
+          if (window.ResizeObserver && leftCol) {
+            const ro = new ResizeObserver(() => {
+              alignBaseline();
+            });
+            ro.observe(leftCol);
+            ro.observe(cta);
+          }
+
+          window.addEventListener('load', () => {
+            setTimeout(alignBaseline, 100);
+            setTimeout(alignBaseline, 500);
+            setTimeout(alignBaseline, 1200);
+            setTimeout(alignBaseline, 2200);
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', setupConverterSwitcher);
+          document.addEventListener('DOMContentLoaded', setupContactForm);
+          document.addEventListener('DOMContentLoaded', setupHeroBaselineAlign);
+        } else {
+          setupConverterSwitcher();
+          setupContactForm();
+          setupHeroBaselineAlign();
+        }
+      })();
+    </script>
   </body>
 </html>
