@@ -23,22 +23,91 @@
   ////////////////////////////////////////////////////
   // 01. Smooth Scroll Js
   function smoothSctoll() {
-    $(".smooth a").on("click", function (event) {
-      var target = $(this.getAttribute("href"));
+    $(document).on("click", 'a[href^="#"]', function (event) {
+      var href = $(this).attr("href");
+      if (!href || href === "#" || href === "#0") return;
+      var target = $(href);
       if (target.length) {
         event.preventDefault();
-        $("html, body")
-          .stop()
-          .animate(
-            {
-              scrollTop: target.offset().top - 120,
-            },
-            1500,
-          );
+        // Close offcanvas mobile drawer if open
+        $(".tw-offcanvas-2-area").removeClass("opened");
+        $(".body-overlay").removeClass("opened");
+
+        if (href === "#home") {
+          if (window.smoother && typeof window.smoother.scrollTo === "function") {
+            window.smoother.scrollTo(0, true);
+          } else {
+            $("html, body").stop().animate({ scrollTop: 0 }, 600);
+          }
+          return;
+        }
+
+        if (window.smoother && typeof window.smoother.scrollTo === "function") {
+          window.smoother.scrollTo(target[0], true, "top 70px");
+        } else {
+          $("html, body")
+            .stop()
+            .animate(
+              {
+                scrollTop: target.offset().top - 70,
+              },
+              800,
+            );
+        }
       }
     });
   }
   smoothSctoll();
+
+  ////////////////////////////////////////////////////
+  // 01b. Header Navigation ScrollSpy
+  function initHeaderScrollSpy() {
+    var sections = ["#home", "#experience", "#services", "#portfolio", "#certifications", "#contact"];
+    var ticking = false;
+
+    function updateActiveNav() {
+      var scrollPos = $(window).scrollTop() + 120;
+      var currentId = "";
+
+      for (var i = sections.length - 1; i >= 0; i--) {
+        var el = $(sections[i]);
+        if (el.length && el.offset().top <= scrollPos) {
+          currentId = sections[i];
+          break;
+        }
+      }
+
+      if (!currentId && sections.length) {
+        currentId = sections[0];
+      }
+
+      if (currentId) {
+        $(".killer-nav-link").removeClass("active");
+        $('.killer-nav-link[href="' + currentId + '"]').addClass("active");
+      }
+      ticking = false;
+    }
+
+    $(window).on("scroll", function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveNav);
+        ticking = true;
+      }
+    });
+
+    $(document).on("click", ".killer-nav-link", function () {
+      var href = $(this).attr("href");
+      $(".killer-nav-link").removeClass("active");
+      $('.killer-nav-link[href="' + href + '"]').addClass("active");
+    });
+
+    $(window).on("load", function () {
+      updateActiveNav();
+    });
+    updateActiveNav();
+  }
+  initHeaderScrollSpy();
+
   if ($("#smooth-wrapper").length && $("#smooth-content").length) {
     gsap.registerPlugin(
       ScrollTrigger,
@@ -50,17 +119,54 @@
       nullTargetWarn: false,
     });
     let smoother = ScrollSmoother.create({
-      smoothTouch: 0.2,
-      smooth: 4,
+      smooth: 1.5,
       effects: true,
+      smoothTouch: 0.1,
       normalizeScroll: false,
-      ignoreMobileResize: true,
+    });
+    window.smoother = smoother;
+
+    // Refresh ScrollTrigger and AOS when fonts, images, and window finish loading
+    if (document.fonts) {
+      document.fonts.ready.then(function () {
+        ScrollTrigger.refresh();
+        if (typeof AOS !== "undefined") AOS.refresh();
+      });
+    }
+
+    $(window).on("load", function () {
+      ScrollTrigger.refresh();
+      if (typeof AOS !== "undefined") AOS.refresh();
+      setTimeout(function () {
+        ScrollTrigger.refresh();
+        if (typeof AOS !== "undefined") AOS.refresh();
+      }, 400);
+      setTimeout(function () {
+        ScrollTrigger.refresh();
+        if (typeof AOS !== "undefined") AOS.refresh();
+      }, 1200);
+    });
+
+    ScrollTrigger.addEventListener("refresh", function () {
+      if (typeof AOS !== "undefined") AOS.refresh();
+    });
+
+    window.addEventListener("resize", function () {
+      ScrollTrigger.refresh();
+      if (typeof AOS !== "undefined") AOS.refresh();
+    });
+
+    window.addEventListener("orientationchange", function () {
+      setTimeout(function () {
+        ScrollTrigger.refresh();
+        if (typeof AOS !== "undefined") AOS.refresh();
+      }, 200);
     });
   }
 
   ////////////////////////////////////////////////////
   // 02. Char SplitText Js
-  if ($(window).width() > 576 && $(".tw-char-animation").length > 0) {
+  if ($(".tw-char-animation").length > 0) {
     let char_come = gsap.utils.toArray(".tw-char-animation");
     char_come.forEach((splitTextLine) => {
       const tl = gsap.timeline({
@@ -554,21 +660,8 @@
   });
 
   ///////////////////////
-  // 09. Hover Reveal
-  const hoverItem = document.querySelectorAll(".hover__reveal-item");
-  function moveImage(e, hoverItem, index) {
-    const item = hoverItem.getBoundingClientRect();
-    const x = e.clientX - item.x;
-    const y = e.clientY - item.y;
-    if (hoverItem.children[index]) {
-      hoverItem.children[index].style.transform = `translate(${x}px, ${y}px)`;
-    }
-  }
-  hoverItem.forEach((item, i) => {
-    item.addEventListener("mousemove", (e) => {
-      setInterval(moveImage(e, item, 1), 50);
-    });
-  });
+  // 09. Hover Reveal (Disabled per user request - clean clickable certificate rows)
+  // Hover reveal effect neutralized.
 
   ///////////////////////
   // 10. Tesimonial Two child (2) Effect
