@@ -10,6 +10,10 @@ Welcome to the official portfolio repository of **Ahamed Raafiq**, an **Electron
 
 This repository contains the full production codebase, custom styling, interactive modules, and high-resolution assets powering the portfolio website.
 
+<p align="center">
+  <img src="Portfolio/assets/images/thumbs/Screenshot%202026-09-25%20124349.png" alt="Ahamed Raafiq — Engineering Portfolio Preview" width="100%">
+</p>
+
 ---
 
 ## 📑 Table of Contents
@@ -133,12 +137,19 @@ Portfolio_RFQ/
 ### 4. Featured Engineering Projects
 - **Location**: `#portfolio` in `Portfolio/index.html`
 - **Highlights**:
-  - **Project 01: Non-Invasive Continuous Glucose Monitoring System (GlucoSense)** — Multi-wavelength NIR optical sensor, transimpedance amplification, ESP32 processing, and wireless dashboard.
-  - **Project 02: Autonomous Line Follower Robot** — High-speed precision line tracking using custom 8-IR sensor array, PID control, and dual H-bridge motor drivers.
-  - **Project 03: Power Supply Modules with Boost & Buck Converters** — Includes an interactive tab switcher comparing the **UC3843AN Step-Up DC-DC Boost Converter (9V–16V to 28V)** and **LM2596 Step-Down DC-DC Buck Converter (3.3V–20V/3A)**, complete with Altium 3D board renders, GitHub repos, and LinkedIn demos.
-  - **Project 04: IMU Visualizer & Motion Tracker** — 6-DOF IMU sensor fusion, Kalman filtering, and real-time 3D orientation visualization via serial telemetry.
-  - **Project 05: EEG Signal Acquisition & Processing System** — Multi-channel EEG biometric acquisition, bandpass filtering, notch filter, and spectral frequency analysis in MATLAB.
-  - **Project 06: Smart Energy Harvesting & Power Management System** — Ambient solar/thermal RF harvesting with MPPT and LiPo charge management.
+  - **Project 01: 6-DOF Robotic Arm** — ROS2 MoveIt motion planning, SolidWorks CAD modeling, multi-servo inverse kinematics, and Arduino firmware.
+  - **Project 02: 2-Wheel Self-Balancing Robot** — PID control loops, MPU6050 IMU sensor fusion, ESP32-S3 microcontroller, and Kalman filtering.
+  - **Project 03: Power Supply Modules with Boost & Buck Converters** — Interactive hardware comparison module featuring the **UC3843AN Step-Up DC-DC Boost Converter (9V–16V to 28V)** and **LM2596 Step-Down DC-DC Buck Converter (3.3V–20V/3A)** with Altium 3D PCB layouts, GitHub repos, and LinkedIn demos.
+  - **Project 04: GlucoSense: Non-Invasive Glucose Monitoring System using PPG Signal** — Multi-wavelength NIR optical sensor, transimpedance amplification, biomedical DSP filtering, XGBoost regression ML, and FastAPI/React telemetry.
+  - **Project 05: Real-Time 3D IMU Visualizer** — ROS2 Jazzy, RViz2 3D attitude display, Madgwick AHRS orientation filtering, and high-speed ESP-IDF USB-CDC telemetry.
+  - **Project 06: Autonomous Drone Simulation** — PX4 Autopilot flight-control stack, ROS2 Gazebo SITL simulation, LiDAR SLAM obstacle avoidance, and QGroundControl ground station integration.
+  - **Project 07: Personal Engineering Portfolio Website** — Production-grade single-page engineering portfolio featuring responsive UI/UX, GSAP ScrollSmoother animations, real-time baseline alignment synchronization, interactive PCB converter switcher, and mobile-first responsive architecture.
+    - **Repository**: [github.com/AhamedRaafiq/Portfolio_RFQ](https://github.com/AhamedRaafiq/Portfolio_RFQ)
+    - **Live Architecture**: Single-page application with modular GSAP animations, Bootstrap 5 responsive grid, and PureCounter stats.
+
+<p align="center">
+  <img src="Portfolio/assets/images/thumbs/Screenshot%202026-09-25%20124349.png" alt="Personal Engineering Portfolio Website Preview" width="100%">
+</p>
 
 ### 5. Verified Industry Certifications
 - **Location**: `#certifications` in `Portfolio/index.html`

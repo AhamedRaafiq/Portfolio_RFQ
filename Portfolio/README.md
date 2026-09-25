@@ -2,6 +2,10 @@
 
 This directory houses the complete frontend application for the **Ahamed Raafiq Engineering Portfolio**.
 
+<p align="center">
+  <img src="assets/images/thumbs/Screenshot%202026-09-25%20124349.png" alt="Engineering Portfolio Preview" width="100%">
+</p>
+
 ---
 
 ## 🗂️ Directory Overview
@@ -54,7 +58,7 @@ The markup is organized into clean, semantic sections connected to top navigatio
 4. **What I Do / Specialized Domains (`#services`)**:
    - 8 technical disciplines with dynamic directional hover image reveals
 5. **Featured Projects (`#portfolio`)**:
-   - Production projects with live links, tags, and interactive Boost/Buck converter tab switcher
+   - 7 production engineering projects with live links, tags, interactive Boost/Buck converter tab switcher, and the personal engineering portfolio repository (`Screenshot 2026-09-25 124349.png`).
 6. **Verified Certifications (`#certifications`)**:
    - Professional certifications from Stanford Online, DeepLearning.AI, Coursera, SEED Labs, and Spaceborn
 7. **Tech Stack & Toolchain (`#skills`)**:
