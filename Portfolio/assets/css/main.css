@@ -12266,8 +12266,9 @@ body.desktop-scaled-mode .portfolio-three-item:nth-child(even) {
   .portfolio-three-item[data-order="4"] { order: 4 !important; }
   .portfolio-three-item[data-order="5"] { order: 5 !important; }
   .portfolio-three-item[data-order="6"] { order: 6 !important; }
+  .portfolio-three-item[data-order="7"] { order: 7 !important; }
   .portfolio-three-counter-wrapper {
-    order: 7 !important;
+    order: 8 !important;
     margin-top: 20px !important;
   }
 }
