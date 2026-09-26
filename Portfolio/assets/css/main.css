@@ -11901,9 +11901,9 @@ body.desktop-scaled-mode .service-three-single {
   }
   .service-three-single,
   body.desktop-scaled-mode .service-three-single {
-    padding: 13px 13px !important;
-    border-radius: 14px !important;
-    margin-block-end: 12px !important;
+    padding: 15px 14px 15px 14px !important;
+    border-radius: 16px !important;
+    margin-block-end: 16px !important;
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
@@ -11937,17 +11937,19 @@ body.desktop-scaled-mode .service-three-single {
     gap: 8px !important;
   }
   .service-three-number {
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     margin-top: 0 !important;
+    width: auto !important;
+    min-width: 24px !important;
   }
   .service-three-number img {
-    width: 13px !important;
-    height: 13px !important;
+    width: 12px !important;
+    height: 12px !important;
   }
   .service-three-title {
-    font-size: clamp(1rem, 4.2vw, 1.2rem) !important;
+    font-size: 1.05rem !important;
     line-height: 1.25 !important;
-    margin-bottom: 0.45rem !important;
+    margin-bottom: 0.35rem !important;
   }
   .service-three-title a {
     font-size: inherit !important;
@@ -11957,9 +11959,9 @@ body.desktop-scaled-mode .service-three-single {
     gap: 4px 6px !important;
   }
   .service-three-single .portfolio-list ul li a {
-    padding: 3px 9px 3px 18px !important;
-    font-size: 0.66rem !important;
-    line-height: 1.25 !important;
+    padding: 3.5px 10px 3.5px 18px !important;
+    font-size: 11.5px !important;
+    line-height: 1.35 !important;
     border-radius: 50px !important;
   }
   .service-three-single .portfolio-list ul li a::before {
@@ -11972,17 +11974,17 @@ body.desktop-scaled-mode .service-three-single {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    height: 105px !important;
-    margin-top: 8px !important;
-    border-radius: 10px !important;
+    height: 160px !important;
+    margin-top: 12px !important;
+    border-radius: 12px !important;
     overflow: hidden !important;
   }
   .service-three-thumb img {
     width: 100% !important;
     height: 100% !important;
-    max-height: 105px !important;
+    max-height: 160px !important;
     object-fit: cover !important;
-    border-radius: 10px !important;
+    border-radius: 12px !important;
   }
 }
 
