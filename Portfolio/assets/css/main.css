@@ -11956,18 +11956,24 @@ body.desktop-scaled-mode .service-three-single {
     line-height: inherit !important;
   }
   .service-three-single .portfolio-list ul {
-    gap: 4px 6px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 3.5px 5px !important;
+  }
+  .service-three-single .portfolio-list ul li {
+    display: inline-flex !important;
   }
   .service-three-single .portfolio-list ul li a {
-    padding: 3.5px 10px 3.5px 18px !important;
-    font-size: 11.5px !important;
-    line-height: 1.35 !important;
+    padding: 2.5px 8px 2.5px 14px !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
     border-radius: 50px !important;
+    letter-spacing: 0.15px !important;
   }
   .service-three-single .portfolio-list ul li a::before {
-    inset-inline-start: 7px !important;
-    width: 4.5px !important;
-    height: 4.5px !important;
+    inset-inline-start: 5.5px !important;
+    width: 4px !important;
+    height: 4px !important;
   }
   .service-three-thumb {
     flex: 0 0 auto !important;
