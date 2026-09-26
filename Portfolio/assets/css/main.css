@@ -11893,15 +11893,35 @@ body.desktop-scaled-mode .service-three-single {
   .service-three-area {
     padding-top: 18px !important;
     padding-bottom: 32px !important;
+    overflow-x: hidden !important;
+    overflow: clip !important;
+  }
+  .service-three-container {
+    overflow: hidden !important;
   }
   .service-three-single,
   body.desktop-scaled-mode .service-three-single {
-    padding: 13px 13px !important;
-    border-radius: 14px !important;
-    margin-block-end: 12px !important;
+    padding: 15px 14px 15px 14px !important;
+    border-radius: 16px !important;
+    margin-block-end: 16px !important;
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+  }
+  .service-three-single:active {
+    border: 2px solid var(--main-two-600) !important;
+  }
+  .service-three-single:active .service-three-number {
+    color: var(--main-two-600) !important;
+  }
+  .service-three-single:active .service-three-number img {
+    filter: inherit !important;
+  }
+  .service-three-single:active .service-three-title a {
+    color: var(--main-two-600) !important;
+  }
+  .service-three-single:active .service-three-thumb img {
+    transform: scale(1.05) !important;
   }
   .service-three-item {
     display: flex !important;
@@ -11917,52 +11937,60 @@ body.desktop-scaled-mode .service-three-single {
     gap: 8px !important;
   }
   .service-three-number {
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     margin-top: 0 !important;
+    width: auto !important;
+    min-width: 24px !important;
   }
   .service-three-number img {
-    width: 13px !important;
-    height: 13px !important;
+    width: 12px !important;
+    height: 12px !important;
   }
   .service-three-title {
-    font-size: clamp(1rem, 4.2vw, 1.2rem) !important;
+    font-size: 1.05rem !important;
     line-height: 1.25 !important;
-    margin-bottom: 0.45rem !important;
+    margin-bottom: 0.35rem !important;
   }
   .service-three-title a {
     font-size: inherit !important;
     line-height: inherit !important;
   }
   .service-three-single .portfolio-list ul {
-    gap: 4px 6px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 3.5px 5px !important;
+  }
+  .service-three-single .portfolio-list ul li {
+    display: inline-flex !important;
   }
   .service-three-single .portfolio-list ul li a {
-    padding: 3px 9px 3px 18px !important;
-    font-size: 0.66rem !important;
-    line-height: 1.25 !important;
+    padding: 2.5px 8px 2.5px 14px !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
     border-radius: 50px !important;
+    letter-spacing: 0.15px !important;
   }
   .service-three-single .portfolio-list ul li a::before {
-    inset-inline-start: 7px !important;
-    width: 4.5px !important;
-    height: 4.5px !important;
+    inset-inline-start: 5.5px !important;
+    width: 4px !important;
+    height: 4px !important;
   }
   .service-three-thumb {
     flex: 0 0 auto !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    height: 105px !important;
-    margin-top: 8px !important;
-    border-radius: 10px !important;
+    height: 160px !important;
+    margin-top: 12px !important;
+    border-radius: 12px !important;
     overflow: hidden !important;
   }
   .service-three-thumb img {
     width: 100% !important;
     height: 100% !important;
-    max-height: 105px !important;
+    max-height: 160px !important;
     object-fit: cover !important;
-    border-radius: 10px !important;
+    border-radius: 12px !important;
   }
 }
 
@@ -12824,22 +12852,122 @@ body.desktop-scaled-mode .portfolio-three-item:nth-child(even) {
 }
 
 @media (max-width: 767px) {
+  .experience-three-area {
+    padding-top: 40px !important;
+    padding-bottom: 35px !important;
+  }
+  .experience-section-header {
+    margin-bottom: 22px !important;
+  }
+  .experience-tag-badge {
+    font-size: 10px !important;
+    padding: 4px 12px !important;
+    margin-bottom: 10px !important;
+  }
+  .experience-section-title {
+    font-size: 26px !important;
+    margin-bottom: 8px !important;
+  }
+  .experience-section-desc {
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+  }
+  .experience-item-wrapper {
+    margin-bottom: 20px !important;
+  }
   .experience-timeline-container::before {
-    left: 16px;
+    left: 14px !important;
+    top: 20px !important;
+    bottom: 20px !important;
   }
   .experience-timeline-node {
-    width: 30px;
-    height: 30px;
-    font-size: 13.5px;
-    margin-right: 12px;
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 12px !important;
+    margin-right: 10px !important;
+    margin-top: 6px !important;
+  }
+  .experience-card {
+    padding: 16px 14px !important;
+    border-radius: 12px !important;
   }
   .experience-card-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+  }
+  .experience-role-title {
+    font-size: 15.5px !important;
+    margin-bottom: 4px !important;
+  }
+  .experience-company-info {
+    gap: 6px !important;
+    font-size: 11.5px !important;
   }
   .experience-duration-pill {
-    align-self: flex-start;
+    padding: 3.5px 9px !important;
+    font-size: 9.5px !important;
+    align-self: flex-start !important;
+  }
+  .experience-action-row {
+    gap: 8px !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+  }
+  .experience-btn {
+    padding: 4px 10px 4px 6px !important;
+    font-size: 10px !important;
+  }
+  .experience-cert-btn .experience-btn-icon,
+  .experience-linkedin-btn .experience-btn-icon {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 10.5px !important;
+  }
+  .experience-cert-btn .experience-btn-label,
+  .experience-linkedin-btn .experience-btn-label {
+    font-size: 10px !important;
+  }
+
+  /* Compact Bullet Points */
+  .experience-bullet-list {
+    margin: 0 0 12px 0 !important;
+  }
+  .experience-bullet-item {
+    font-size: 11.5px !important;
+    line-height: 1.42 !important;
+    margin-bottom: 6px !important;
+    padding-left: 16px !important;
+    color: #cbd5e1 !important;
+  }
+  .experience-bullet-item:last-child {
+    margin-bottom: 0 !important;
+  }
+  .experience-bullet-item::before {
+    font-size: 10px !important;
+    left: 1px !important;
+    top: 0px !important;
+    line-height: 1.42 !important;
+  }
+  .experience-bullet-item strong {
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+  }
+
+  /* Compact Skills */
+  .experience-skills-section {
+    padding-top: 10px !important;
+    gap: 5px !important;
+  }
+  .experience-skills-label {
+    font-size: 9px !important;
+    margin-right: 2px !important;
+  }
+  .experience-skill-badge {
+    padding: 2.5px 7.5px !important;
+    font-size: 9px !important;
   }
 }
 
@@ -13309,8 +13437,8 @@ body.desktop-scaled-mode .portfolio-three-item:nth-child(even) {
 }
 
 @media screen and (max-width: 767px) {
-  /* Prevent horizontal clipping/shifts caused by pre-scroll AOS transforms on mobile */
-  [data-aos] {
+  /* Prevent horizontal clipping/shifts caused by pre-scroll AOS transforms on mobile, except What I Do skills */
+  [data-aos]:not(.service-three-single) {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
