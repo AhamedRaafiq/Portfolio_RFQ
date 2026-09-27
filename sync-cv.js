@@ -10,7 +10,7 @@ function syncCV() {
     return;
   }
 
-  // Find all document files in CV folder (exclude hidden/temp files)
+  // Find all document files in CV folder (exclude hidden/temp/json files)
   const files = fs.readdirSync(cvDir).filter(file => {
     if (file.startsWith('.') || file.startsWith('~') || file.endsWith('.json')) return false;
     const ext = path.extname(file).toLowerCase();
@@ -33,23 +33,14 @@ function syncCV() {
   const sourcePath = path.join(cvDir, latestFile);
   const ext = path.extname(latestFile).toLowerCase();
 
-  // Target destinations
-  const destDir1 = path.join(rootDir, 'Portfolio', 'assets', 'cv');
-  const destDir2 = path.join(rootDir, 'Portfolio', 'CV');
+  // Target destination: Portfolio/assets/cv/
+  const destDir = path.join(rootDir, 'Portfolio', 'assets', 'cv');
+  if (!fs.existsSync(destDir)) {
+    fs.mkdirSync(destDir, { recursive: true });
+  }
 
-  [destDir1, destDir2].forEach(dir => {
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-  });
-
-  const destFile1 = path.join(destDir1, `Ahamed_Raafiq_Resume${ext}`);
-  const destFile2 = path.join(destDir2, `latest${ext}`);
-  const destFileOriginal = path.join(destDir1, latestFile);
-
-  fs.copyFileSync(sourcePath, destFile1);
-  fs.copyFileSync(sourcePath, destFile2);
-  fs.copyFileSync(sourcePath, destFileOriginal);
+  const destFile = path.join(destDir, `Ahamed_Raafiq_Resume${ext}`);
+  fs.copyFileSync(sourcePath, destFile);
 
   // Write metadata manifest
   const manifest = {
@@ -60,9 +51,9 @@ function syncCV() {
     updatedAt: new Date().toISOString()
   };
 
-  fs.writeFileSync(path.join(destDir1, 'cv-manifest.json'), JSON.stringify(manifest, null, 2));
+  fs.writeFileSync(path.join(destDir, 'cv-manifest.json'), JSON.stringify(manifest, null, 2));
 
-  console.log(`[sync-cv] Successfully synced: "${latestFile}" -> "${destFile1}"`);
+  console.log(`[sync-cv] Successfully synced: "${latestFile}" -> "${destFile}"`);
 }
 
 if (require.main === module) {

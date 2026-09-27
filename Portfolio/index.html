@@ -3602,33 +3602,14 @@
           });
         }
 
-        function setupDynamicCvDownload() {
-          const cvButtons = document.querySelectorAll('[data-cv-download="true"]');
-          cvButtons.forEach(btn => {
-            btn.addEventListener('click', function (e) {
-              if (window.location.protocol.startsWith('http')) {
-                e.preventDefault();
-                const link = document.createElement('a');
-                link.href = '/api/download-cv';
-                link.download = 'Ahamed_Raafiq_Resume.pdf';
-                document.body.appendChild(link);
-                link.click();
-                setTimeout(() => document.body.removeChild(link), 100);
-              }
-            });
-          });
-        }
-
         if (document.readyState === 'loading') {
           document.addEventListener('DOMContentLoaded', setupConverterSwitcher);
           document.addEventListener('DOMContentLoaded', setupContactForm);
           document.addEventListener('DOMContentLoaded', setupHeroBaselineAlign);
-          document.addEventListener('DOMContentLoaded', setupDynamicCvDownload);
         } else {
           setupConverterSwitcher();
           setupContactForm();
           setupHeroBaselineAlign();
-          setupDynamicCvDownload();
         }
       })();
     </script>

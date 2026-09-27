@@ -1,7 +1,0 @@
-{
-  "name": "portfolio-frontend",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "node ../sync-cv.js || echo 'synced'"
-  }
-}
