@@ -1,0 +1,8 @@
+{
+  "name": "portfolio-rfq",
+  "version": "1.0.0",
+  "description": "Personal Portfolio - Ahamed Raafiq",
+  "scripts": {
+    "build": "node sync-cv.js"
+  }
+}
