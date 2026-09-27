@@ -357,7 +357,8 @@
             <div class="header-three-button">
               <a
                 class="tw-hover-btn bg-black text-white fw-bold d-inline-block hover-text-white text-uppercase header-cv-btn"
-                href="../CV/Raafiq_Resume_(R1).pdf"
+                href="assets/cv/Ahamed_Raafiq_Resume.pdf"
+                data-cv-download="true"
                 download="Ahamed_Raafiq_Resume.pdf"
               >
                 download cv
@@ -418,7 +419,8 @@
                     </a>
                     <a
                       class="hero-new__btn hero-new__btn--outline"
-                      href="../CV/Raafiq_Resume_(R1).pdf"
+                      href="assets/cv/Ahamed_Raafiq_Resume.pdf"
+                      data-cv-download="true"
                       download="Ahamed_Raafiq_Resume.pdf"
                     >
                       DOWNLOAD CV
@@ -560,7 +562,7 @@
                       <span>VIEW PROJECTS</span>
                       <i class="hero-v2__btn-arrow">↗</i>
                     </a>
-                    <a class="hero-v2__btn hero-v2__btn--ghost" href="../CV/Raafiq_Resume_(R1).pdf" download="Ahamed_Raafiq_Resume.pdf">
+                    <a class="hero-v2__btn hero-v2__btn--ghost" href="assets/cv/Ahamed_Raafiq_Resume.pdf" data-cv-download="true" download="Ahamed_Raafiq_Resume.pdf">
                       <span>DOWNLOAD CV</span>
                       <i class="hero-v2__btn-arrow">↗</i>
                     </a>
@@ -3600,14 +3602,33 @@
           });
         }
 
+        function setupDynamicCvDownload() {
+          const cvButtons = document.querySelectorAll('[data-cv-download="true"]');
+          cvButtons.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+              if (window.location.protocol.startsWith('http')) {
+                e.preventDefault();
+                const link = document.createElement('a');
+                link.href = '/api/download-cv';
+                link.download = 'Ahamed_Raafiq_Resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                setTimeout(() => document.body.removeChild(link), 100);
+              }
+            });
+          });
+        }
+
         if (document.readyState === 'loading') {
           document.addEventListener('DOMContentLoaded', setupConverterSwitcher);
           document.addEventListener('DOMContentLoaded', setupContactForm);
           document.addEventListener('DOMContentLoaded', setupHeroBaselineAlign);
+          document.addEventListener('DOMContentLoaded', setupDynamicCvDownload);
         } else {
           setupConverterSwitcher();
           setupContactForm();
           setupHeroBaselineAlign();
+          setupDynamicCvDownload();
         }
       })();
     </script>

@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/download-cv.js": {
+      "includeFiles": "CV/**"
+    }
+  }
+}
