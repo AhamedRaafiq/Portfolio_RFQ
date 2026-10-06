@@ -28,7 +28,7 @@
     <!-- aos -->
     <link rel="stylesheet" href="assets/css/aos.css" />
     <!-- Main css -->
-    <link rel="stylesheet" href="assets/css/main.css?v=17897780" />
+    <link rel="stylesheet" href="assets/css/main.css?v=17897790" />
     <!-- Vercel Web Analytics -->
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -2253,15 +2253,47 @@
                       data-aos-delay="150"
                     >
                       <div class="portfolio-three-wrap tw-mb-5">
-                        <!-- Line 1: Title in initial separate line -->
-                        <div class="portfolio-title-wrap tw-mb-3">
+                        <!-- Line 1: Title & NDA Status Pill -->
+                        <div class="portfolio-title-wrap d-flex flex-wrap align-items-center tw-gap-3 tw-mb-3">
                           <h2 class="portfolio-project-title fw-semibold mb-0">
                             <a
                               class="hover-text-main-two-600"
-                              href="#portfolio"
+                              href="assets/images/Certificate/Spaceborn%20Intern%20Certificate.pdf"
+                              target="_blank"
+                              rel="noopener noreferrer"
                               >Autonomous Drone Simulation</a
                             >
                           </h2>
+                          <span class="project-status-pill status-nda">
+                            <span class="status-nda-icon"><i class="ph-bold ph-lock-key"></i></span>
+                            <span class="status-text">Confidential • Spaceborn Internship</span>
+                          </span>
+                        </div>
+                        <!-- Line 2: Spaceborn NDA & Certificate Notice -->
+                        <div class="portfolio-nda-box tw-mb-3">
+                          <div class="d-flex flex-wrap align-items-center justify-content-between tw-gap-2 tw-mb-2">
+                            <div class="portfolio-github-wrap d-flex flex-wrap align-items-center tw-gap-2 mb-0">
+                              <span class="portfolio-nda-badge">
+                                <i class="ph-bold ph-shield-check"></i>
+                                <span>Proprietary Industry Project</span>
+                              </span>
+                              <a
+                                class="portfolio-cert-btn"
+                                href="assets/images/Certificate/Spaceborn%20Intern%20Certificate.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="View Spaceborn-India Internship Certificate (PDF)"
+                              >
+                                <span class="portfolio-cert-icon"><i class="ph-bold ph-certificate"></i></span>
+                                <span class="portfolio-cert-label">View Internship Certificate</span>
+                                <i class="ph ph-arrow-up-right portfolio-cert-arrow"></i>
+                              </a>
+                            </div>
+                          </div>
+                          <p class="portfolio-nda-note mb-0">
+                            <i class="ph ph-info me-1"></i>
+                            GitHub repository link and project documents cannot be shared publicly because the codebase and simulation files are restricted under company confidentiality policies by <strong>Spaceborn</strong> (where I completed my internship).
+                          </p>
                         </div>
                         <!-- Line 3: Keywords above image -->
                         <div class="portfolio-three-list portfolio-list">
@@ -2294,21 +2326,36 @@
                                 >QGroundControl</a
                               >
                             </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#portfolio"
+                                >Telemetry Analysis</a
+                              >
+                            </li>
                           </ul>
                         </div>
                       </div>
                       <div
-                        class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg"
-                        data-cursor="View"
+                        class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg position-relative overflow-hidden"
+                        data-cursor="Spaceborn"
                       >
                         <a
-                          class="d-block cursor-hide tw-rounded-lg"
-                          href="#portfolio"
+                          class="d-block cursor-hide tw-rounded-lg position-relative"
+                          href="assets/images/Certificate/Spaceborn%20Intern%20Certificate.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           ><img
                             class="w-100 tw-rounded-lg"
                             src="assets/images/thumbs/portfolio-three-thumb6.jpg?v=2"
-                            alt="Autonomous Drone Simulation"
-                        /></a>
+                            alt="Autonomous Drone Simulation — Spaceborn-India"
+                          />
+                          <!-- Glassmorphism Confidential Project Badge -->
+                          <div class="thumb-dev-overlay-badge">
+                            <span class="dev-badge-icon">🔒</span>
+                            <span class="dev-badge-text">Spaceborn-India • NDA Protected</span>
+                          </div>
+                        </a>
                       </div>
                     </div>
 
